@@ -1,7 +1,7 @@
 function FavoriteRecipeList() {
   return(
     <div>
-      
+     
     </div>
   )
 };
