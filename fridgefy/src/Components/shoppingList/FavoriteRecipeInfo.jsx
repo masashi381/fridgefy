@@ -1,7 +1,7 @@
-function FavoriteRecipeInfo(){
+function FavoriteRecipeInfo({content}){
   return(
     <>
-    <p>test</p>
+    <p>{content}</p>
     </>
   )
 };

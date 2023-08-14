@@ -4,18 +4,18 @@ import FavoriteRecipeInfo from "./FavoriteRecipeInfo";
 
 function FavoriteRecipeItem({ title, content }){
   const [isActive, setActive] = useState(false);
-  function accordionHandler(){
-    setActive(!isActive);
-  };
+  const [deleteActive, setDeleteActive] = useState(true);
 
   return(
     <div>
-      <div onClick={accordionHandler}>
-        <h3>{title}</h3>
-        <FavoriteBtnContainer />
-        {/* <span>{isActive ? "-" : "+"}</span> */}
+      {deleteActive && <div>
+        <div>
+          <h3>{title}</h3>
+          <FavoriteBtnContainer isActive={isActive} setActive={setActive} setDeleteActive={setDeleteActive}/>
+        </div>
+        {isActive && <FavoriteRecipeInfo content={content}/>}
       </div>
-      {isActive && <FavoriteRecipeInfo/>}
+      }          
     </div>
   )
 };

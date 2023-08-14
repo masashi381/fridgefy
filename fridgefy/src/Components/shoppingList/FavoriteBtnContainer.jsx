@@ -1,11 +1,11 @@
 import BtnDelete from "./BtnDelete";
 import BtnAccordion from "./BtnAccordion";
 
-function FavoriteBtnContainer(){
+function FavoriteBtnContainer({isActive, setActive, setDeleteActive}){
   return(
     <>
-    <BtnDelete/>
-    <BtnAccordion/>
+    <BtnDelete setDeleteActive={setDeleteActive}/>
+    <BtnAccordion isActive={isActive} setActive={setActive}/>
     </>
   )
 };

@@ -1,8 +1,11 @@
-function BtnAccordion(){
+function BtnAccordion({ isActive, setActive }){
+  function accordionHandler(){
+    setActive(!isActive);
+  };
   return(
-    <>
-    <span>Accordion</span>
-    </>
+    <div onClick={accordionHandler}>
+    <span>{isActive ? "-" : "+"}</span>
+    </div>
   )
 };
 

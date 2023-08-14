@@ -1,7 +1,11 @@
-function BtnDelete(){
+function BtnDelete({ setDeleteActive }){
+  function deleteHandler(){
+    localStorage.removeItem("data");
+    setDeleteActive(false);
+  };
   return(
     <>
-    <button>Delete</button>
+    <button onClick={deleteHandler}>Delete</button>
     </>
   )
 };
