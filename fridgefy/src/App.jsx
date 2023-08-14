@@ -2,9 +2,9 @@ function App() {
   
 
   return (
-    <h1>
-      Fridgefy
-    </h1>
+      <h1>
+        Fridgefy
+      </h1>
   )
 }
 
