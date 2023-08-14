@@ -1,8 +1,10 @@
+import FavoriteRecipeList from "./FavoritesRecipeList";
+
 function ShoppingList() {
   return (
     <div>
       <MyFridge/>
-      <FavoritesRecipeList/>
+      <FavoriteRecipeList/>
       <ItemsBuyList/>
     </div>
   )
