@@ -3,9 +3,9 @@ import FavoriteRecipeList from "./FavoritesRecipeList";
 function ShoppingList() {
   return (
     <div>
-      <MyFridge/>
+      {/* <MyFridge/> */}
       <FavoriteRecipeList/>
-      <ItemsBuyList/>
+      {/* <ItemsBuyList/> */}
     </div>
   )
 };
