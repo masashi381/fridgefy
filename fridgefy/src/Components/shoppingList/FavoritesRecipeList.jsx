@@ -1,27 +1,21 @@
 import FavoriteRecipeItem from "./FavoriteRecipeItem";
-
-const demoData = [{
-  title: "Recipe 1",
-  content: "more information 1",
-},
-{
-  title: "Recipe 2",
-  content: "more information 2",
-},
-{
-  title: "Recipe 3",
-  content: "more information 3",
-}];
+import data from "../../backend/data/recipes.json";
+import styled from "styled-components";
 
 function FavoriteRecipeList() {
+  
   return(
-    <div>
-      {demoData.map(({title, content}, index) => (
-        <FavoriteRecipeItem key={index} title={title} content={content}/>
+    <FavoriteRecipeDiv>
+      {data.recipes.map((recipe) => (
+        <FavoriteRecipeItem key={recipe.id} title={recipe.title} content={recipe.instructions} image={recipe.image}/>
       ))}
-    </div>
+    </FavoriteRecipeDiv>
   )
 };
 
 export default FavoriteRecipeList;
 
+const FavoriteRecipeDiv = styled.div`
+  width: 60vw;
+  margin: 0 auto;
+`
