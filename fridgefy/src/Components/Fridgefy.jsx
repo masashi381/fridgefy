@@ -1,4 +1,5 @@
 import RecipesPageSection from "./RecipesPage.jsx";
+import ShoppingList from "../Components/shoppingList/Shoppinglistpagecomponent.jsx";
 
 export default function FridgefyDiv(){
     return (
@@ -6,6 +7,7 @@ export default function FridgefyDiv(){
         <>
             <h1>Fridgefy</h1>
             <RecipesPageSection/>
+            <ShoppingList/>
         </>
 
     )
