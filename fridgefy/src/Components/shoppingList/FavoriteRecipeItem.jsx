@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FavoriteBtnContainer from "./FavoriteBtnContainer";
 import FavoriteRecipeInfo from "./FavoriteRecipeInfo";
+import styled from "styled-components";
 
 function FavoriteRecipeItem({ title, content, image }){
   const [isActive, setActive] = useState(false);
@@ -9,10 +10,10 @@ function FavoriteRecipeItem({ title, content, image }){
   return(
     <div>
       {deleteActive && <div>
-        <div>
+        <FlexDiv>
           <h3>{title}</h3>
           <FavoriteBtnContainer isActive={isActive} setActive={setActive} setDeleteActive={setDeleteActive}/>
-        </div>
+        </FlexDiv>
         {isActive && <FavoriteRecipeInfo content={content} image={image}/>}
       </div>
       }          
@@ -21,3 +22,8 @@ function FavoriteRecipeItem({ title, content, image }){
 };
 
 export default FavoriteRecipeItem;
+
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`

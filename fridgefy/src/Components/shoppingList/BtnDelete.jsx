@@ -1,3 +1,5 @@
+import styled from "styled-components"
+
 function BtnDelete({ setDeleteActive }){
   function deleteHandler(){
     localStorage.removeItem("data");
@@ -5,9 +7,13 @@ function BtnDelete({ setDeleteActive }){
   };
   return(
     <>
-    <button onClick={deleteHandler}>Delete</button>
+    <DeleteSpan onClick={deleteHandler}><i class="fa-solid fa-trash"></i></DeleteSpan>
     </>
   )
 };
 
 export default BtnDelete;
+
+const DeleteSpan = styled.span`
+  margin-right: 10px;
+`

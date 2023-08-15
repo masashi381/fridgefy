@@ -4,7 +4,7 @@ function BtnAccordion({ isActive, setActive }){
   };
   return(
     <div onClick={accordionHandler}>
-    <span>{isActive ? "-" : "+"}</span>
+    <span>{isActive ? <i class="fa-solid fa-chevron-up"></i> : <i class="fa-solid fa-chevron-down"></i>}</span>
     </div>
   )
 };
