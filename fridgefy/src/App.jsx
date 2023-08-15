@@ -29,8 +29,10 @@ function App() {
   return (
 
     <>
-      <h1>WELCOME</h1>
-      <button onClick={handleGoogleSignIn}>LOGIN</button>
+      {/* <h1>WELCOME</h1>
+      <button onClick={handleGoogleSignIn}>LOGIN</button> */}
+
+      <FridgefyDiv/>
     </>
     
 
