@@ -7,7 +7,7 @@ function BtnDelete({ setDeleteActive }){
   };
   return(
     <>
-    <DeleteSpan onClick={deleteHandler}><i class="fa-solid fa-trash"></i></DeleteSpan>
+    <DeleteSpan onClick={deleteHandler}><i className="fa-solid fa-trash"></i></DeleteSpan>
     </>
   )
 };
