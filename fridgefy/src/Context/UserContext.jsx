@@ -18,7 +18,7 @@ export function UserContext({ children }) {
     const googleSignIn = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-        signInWithRedirect(auth, provider)
+        // signInWithRedirect(auth, provider)
     }
 
     const googleLogOut = () => {

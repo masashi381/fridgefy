@@ -7,14 +7,7 @@ function PageA(props) {
 
     const { googleSignIn, googleLogOut, user } = useContext(User)
 
-    const handleGoogleSignIn = async () => {
-        try{
-            await googleSignIn()
-        } catch(e){
-            console.log(e);
-        }
-        console.log("EVENT");
-    }
+
 
     const handleGoogleLogOut = async () => {
         try{
@@ -28,11 +21,11 @@ function PageA(props) {
     return (
         <>
         <div>
-            <button onClick={handleGoogleSignIn}>LOGIN</button>
+            <h1>Hello: {user?.displayName}</h1>
             <button onClick={handleGoogleLogOut}>LOGOUT</button>
             
         </div>
-        <Link to={"/"} relative='path'>App</Link>
+        
         </>
     );
 }
