@@ -1,4 +1,4 @@
-import FavoriteRecipeList from "./FavoritesRecipeList";
+import FavoriteRecipeList from "../Components/shoppingList/FavoritesRecipeList";
 import styled from "styled-components";
 
 
