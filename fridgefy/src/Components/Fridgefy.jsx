@@ -3,6 +3,7 @@ import MyFridgeComponent from "./MyFridgeComponent.jsx";
 import MyFridgeList from "./MyFridgeList.jsx";
 import RecipesPageSection from "./RecipesPage.jsx";
 import ShoppingList from "../Pages/ShoppingListPage.jsx";
+import Home from "../Pages/Home.jsx";
 
 export default function FridgefyDiv(){
     return (
@@ -13,6 +14,7 @@ export default function FridgefyDiv(){
             <MyFridgeComponent />
             <MyFridgeList />
         </MyFridge>
+            <Home/>
             <RecipesPageSection/>
             <ShoppingList/>
         </>
