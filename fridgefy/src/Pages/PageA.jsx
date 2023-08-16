@@ -1,28 +1,20 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from "react-router-dom"
 import { User } from "../Context/UserContext"
+import Header from '../Components/common/Header';
+import FridgefyDiv from '../Components/Fridgefy';
 
 
 function PageA(props) {
 
-    const { googleSignIn, googleLogOut, user } = useContext(User)
-
-
-
-    const handleGoogleLogOut = async () => {
-        try{
-            await googleLogOut()
-        } catch(e){
-            console.log(e);
-        }
-    }
+    
 
 
     return (
         <>
         <div>
-            <h1>Hello: {user?.displayName}</h1>
-            <button onClick={handleGoogleLogOut}>LOGOUT</button>
+            <Header></Header>
+            <FridgefyDiv></FridgefyDiv>
             
         </div>
         
