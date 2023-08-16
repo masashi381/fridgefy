@@ -8,11 +8,16 @@ function MyFridgeComponent() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestedIngredients, setSuggestedIngredients] = useState([]);
-
+  
+  
   const handleAddToFridge = (ingredient) => {
-    addIngredientToFridge(ingredient);
+    const ingredientValue = document.querySelector("input").value;
+    // console.log(ingredientValue);
+    addIngredientToFridge(ingredientValue);
+    // console.log("event")
+    
   };
-
+  
   let ingredients = [];
   const uniqueIngredients = new Set();
   dummyData.recipes.forEach((recipe) => {
@@ -21,12 +26,12 @@ function MyFridgeComponent() {
       if (
         !uniqueIngredients.has(ingredientName) &&
         ingredientName.toLowerCase().includes(searchQuery.toLowerCase())
-      ) {
-        uniqueIngredients.add(ingredientName);
-        ingredients.push(ingredientName);
-      }
+        ) {
+          uniqueIngredients.add(ingredientName);
+          ingredients.push(ingredientName);
+        }
+      });
     });
-  });
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
@@ -36,8 +41,8 @@ function MyFridgeComponent() {
     );
     setSuggestedIngredients(suggested);
   };
-  console.log(ingredients);
-// console.log(fridge);
+  // console.log(ingredients);
+
   return (
     <div>
       <input
@@ -47,7 +52,7 @@ function MyFridgeComponent() {
         onChange={handleInputChange}
         list="ingredient-list"
       />
-      <ButtonStyle onClick={handleAddToFridge}>Add to Fridge</ButtonStyle>
+      <ButtonStyle id="AddFridgeButton" onClick={handleAddToFridge}>Add to Fridge</ButtonStyle>
       <datalist id="ingredient-list">
         {suggestedIngredients.map((ingredient, index) => (
           <option key={index} value={ingredient} />
