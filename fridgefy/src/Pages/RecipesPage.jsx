@@ -1,9 +1,10 @@
-import RecipesInfoDiv from "./RecipesInfo.jsx"
+import RecipesInfoDiv from "../Components/RecipesInfo"
+import Header from "../Components/common/Header"
 
 export default function RecipesPageSection(){
     return (
         <section>
-            RecipesPage
+            <Header></Header>
             <RecipesInfoDiv/>
         </section>
     )

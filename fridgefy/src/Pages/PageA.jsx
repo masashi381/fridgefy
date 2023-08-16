@@ -14,7 +14,8 @@ function PageA(props) {
         <>
         <div>
             <Header></Header>
-            <FridgefyDiv></FridgefyDiv>
+            <h1>HOME</h1>
+            
             
         </div>
         
