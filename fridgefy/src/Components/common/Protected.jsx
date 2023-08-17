@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom'
-import { User }from '../Context/UserContext'
+import { User }from '../../Context/UserContext'
 
 
 function Protected({children}) {

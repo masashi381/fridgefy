@@ -2,11 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import PageA from './Pages/PageA.jsx'
-import PageB from './Pages/PageB.jsx'
-import PageC from './Pages/PageC.jsx'
+
 import { UserContext } from "./Context/UserContext.jsx";
-import Protected from './Components/Protected.jsx'
+import { FavoritesRecipesContext } from './Context/FavoritesRecipesContext.jsx'
+
+import Protected from './Components/common/Protected.jsx'
+import ShoppingList from './Pages/ShoppingListPage.jsx'
+import RecipesPage from './Pages/RecipesPage.jsx'
+import HomePage from './Pages/Home.jsx'
+import GlobalStyle from './Components/common/GlobalStyle.jsx'
 
 
 const router = createBrowserRouter([
@@ -17,30 +21,35 @@ const router = createBrowserRouter([
   {
     path: "home",
     element: 
+    
     <Protected>
-      <PageA />
+      <HomePage />
     </Protected>
+    
   },
   {
     path: "recipes",
     element: 
     <Protected>
-      <PageB />
+      <RecipesPage />
     </Protected>
   },
   {
     path: "shoppingList",
     element: 
     <Protected>
-      <PageC />
+      <ShoppingList />
     </Protected>
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <GlobalStyle/>
     <UserContext>
-      <RouterProvider router={router} />
+      <FavoritesRecipesContext>
+        <RouterProvider router={router} />
+      </FavoritesRecipesContext>
     </UserContext>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

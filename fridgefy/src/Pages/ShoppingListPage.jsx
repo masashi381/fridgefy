@@ -1,14 +1,18 @@
 import FavoriteRecipeList from "../Components/shoppingList/FavoritesRecipeList";
 import styled from "styled-components";
+import Header from "../Components/common/Header";
 
 
 function ShoppingList() {
   return (
+    <>
+    <Header></Header>
     <SoppingListDiv>
       {/* <MyFridge/> */}
       <FavoriteRecipeList/>
       {/* <ItemsBuyList/> */}
     </SoppingListDiv>
+    </>
   )
 };
 
