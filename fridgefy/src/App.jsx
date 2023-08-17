@@ -10,15 +10,6 @@ function App() {
   const { googleSignIn, user } = useContext(User);
   const navigate = useNavigate()
 
-  const handleGoogleSignIn = async () => {
-        try{
-            await googleSignIn()
-        } catch(e){
-            console.log(e);
-        }
-        console.log("EVENT");
-    }
-
     useEffect(()=>{
       if(user != null){
         navigate('/home')
@@ -29,13 +20,9 @@ function App() {
 
   return (
 
-    <>
+    
       <Header></Header>
-      {/* <h1>WELCOME</h1>
-      <button onClick={handleGoogleSignIn}>LOGIN</button> */}
-
-      {/* <FridgefyDiv/> */}
-    </>
+    
     
 
   )

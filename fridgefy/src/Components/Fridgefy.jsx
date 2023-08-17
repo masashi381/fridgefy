@@ -1,7 +1,7 @@
 import { MyFridge } from "../Context/MyFridgeContext.jsx";
-import MyFridgeComponent from "./MyFridgeComponent.jsx";
+import MyFridgeInput from "./common/MyFridgeInput.jsx";
 import MyFridgeList from "./MyFridgeList.jsx";
-import RecipesPageSection from "./RecipesPage.jsx";
+import RecipesPageSection from "../Pages/RecipesPage.jsx";
 import ShoppingList from "../Pages/ShoppingListPage.jsx";
 import Home from "../Pages/Home.jsx";
 
@@ -12,7 +12,7 @@ export default function FridgefyDiv(){
             <h1>Fridgefy</h1>
             <Home/>
         <MyFridge>
-            <MyFridgeComponent />
+            <MyFridgeInput />
             <MyFridgeList />
         </MyFridge>            
             <RecipesPageSection/>

@@ -28,7 +28,6 @@ export function UserContext({ children }) {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
-            console.log("user", currentUser)
         })
         return () => {
             unsubscribe
@@ -37,7 +36,7 @@ export function UserContext({ children }) {
 
     return (
 
-
+        
         <User.Provider value={{ googleSignIn, googleLogOut, user }}>
             {children}
         </User.Provider>

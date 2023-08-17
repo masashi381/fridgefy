@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { MyFridge, MyFridgeContext } from '../Context/MyFridgeContext';
-import dummyData from '../backend/data/recipes.json';
+import { MyFridgeContext } from '../../Context/MyFridgeContext';
+import dummyData from "../../backend/data/recipes.json"
 import styled from 'styled-components';
 
-function MyFridgeComponent() {
+function MyFridgeInput() {
   const { fridge, addIngredientToFridge } = useContext(MyFridgeContext);
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -74,4 +74,4 @@ const HidingUl = styled.ul`
   
 `
 
-export default MyFridgeComponent;
+export default MyFridgeInput;
