@@ -10,11 +10,11 @@ export default function FridgefyDiv(){
 
         <>
             <h1>Fridgefy</h1>
+            <Home/>
         <MyFridge>
             <MyFridgeComponent />
             <MyFridgeList />
-        </MyFridge>
-            <Home/>
+        </MyFridge>            
             <RecipesPageSection/>
             <ShoppingList/>
         </>

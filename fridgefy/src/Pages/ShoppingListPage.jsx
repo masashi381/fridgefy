@@ -1,13 +1,20 @@
 import FavoriteRecipeList from "../Components/shoppingList/FavoritesRecipeList";
+import ItemsBuyList from "../Components/shoppingList/ItemsBuyList";
+import { MyFridge } from "../Context/MyFridgeContext";
+import MyFridgeComponent from "../Components/MyFridgeComponent";
+import MyFridgeList from "../Components/MyFridgeList";
 import styled from "styled-components";
 
 
 function ShoppingList() {
   return (
     <SoppingListDiv>
-      {/* <MyFridge/> */}
+      <MyFridge>
+          <MyFridgeComponent />
+          <MyFridgeList />
+      </MyFridge>
       <FavoriteRecipeList/>
-      {/* <ItemsBuyList/> */}
+      <ItemsBuyList/>
     </SoppingListDiv>
   )
 };
@@ -15,6 +22,7 @@ function ShoppingList() {
 export default ShoppingList;
 
 const SoppingListDiv = styled.div`
+  display: flex;
   width: 100%;
-  margin: 0 auto;
+  justify-content: space-between;
 `
