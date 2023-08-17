@@ -36,7 +36,7 @@ export function UserContext({ children }) {
 
     return (
 
-
+        
         <User.Provider value={{ googleSignIn, googleLogOut, user }}>
             {children}
         </User.Provider>

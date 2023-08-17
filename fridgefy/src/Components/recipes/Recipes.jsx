@@ -11,14 +11,40 @@ function Recipes(props) {
     const [recipesList, setRecipesList] = useState([])
 
 
+
+
     useEffect(()=>{
             // axios.get(baseURL).then((response)=>{
             //     setRecipesList(response.data)
             // })
+
+            // const recipe = {
+            //     vegetarian: false,
+            //     vegan: false,
+            //     glutenFree: false,
+            //     dairyFree: false,
+            //     veryHealthy: false,
+            //     cheap:false,
+            //     ingredients: [
+            //         {
+            //             id: "",
+            //             originalName: "",
+
+            //         }
+            //     ],
+            //     id: "",
+            //     title: "",
+            //     image:"",
+            //     cuisines:[],
+            //     dishTypes: [],
+            //     diets: [],
+            //     instructions: "",
+
+            // }
             setRecipesList(recipes.recipes)
     })
 
-    console.log("recipesList", recipesList)
+    
 
     return (
         <RecipesList list={recipesList}/>

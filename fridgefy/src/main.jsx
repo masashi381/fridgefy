@@ -4,6 +4,8 @@ import App from './App.jsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import { UserContext } from "./Context/UserContext.jsx";
+import { FavoritesRecipesContext } from './Context/FavoritesRecipesContext.jsx'
+
 import Protected from './Components/common/Protected.jsx'
 import ShoppingList from './Pages/ShoppingListPage.jsx'
 import RecipesPage from './Pages/RecipesPage.jsx'
@@ -21,7 +23,7 @@ const router = createBrowserRouter([
     element: 
     
     <Protected>
-      <HomePage/>
+      <HomePage />
     </Protected>
     
   },
@@ -45,7 +47,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <GlobalStyle/>
     <UserContext>
-      <RouterProvider router={router} />
+      <FavoritesRecipesContext>
+        <RouterProvider router={router} />
+      </FavoritesRecipesContext>
     </UserContext>
-  </React.StrictMode>,
+  </React.StrictMode>
 )

@@ -1,11 +1,15 @@
 import Styled from "styled-components";
 import { useState, useContext } from "react";
 import ReactPaginate from "react-paginate";
+import { FavoritesRecipes } from '../../Context/FavoritesRecipesContext'
+
 
 
 
 export default function RecipesList({list}){
     const [currentPage, setCurrentPage] = useState(0);
+    const {favoriteRecipes, setFavoriteRecipes} = useContext(FavoritesRecipes)
+    
     const itemsPerPage = 15;
     const totalPages = Math.ceil(list.length / itemsPerPage);
     const startIndex = currentPage * itemsPerPage;
@@ -27,22 +31,37 @@ export default function RecipesList({list}){
         setCurrentPage(selectedPage.selected);
     };
 
+    const addFavoriteRecipes = (e) => {
+        const favorite = filterRecipesList(e.target.id)
+        setFavoriteRecipes((prev)=>{
+            return [...prev, favorite]
+        })        
+    }
+
+    const filterRecipesList = (id) => {
+        let result;
+        const search = list.map((item)=>{
+            if(id === item.id.toString()){
+                return result = item
+            }
+        })
+        return result
+    }
+
     return (
         <div>
             <Ul>
-                {subset.map((post, index) => (
-                    // <div key={item.id}>{item.title}</div>
+                {subset.map((item, index) => (
                     <Li key={index} className={index}>
-                    <Img src={post["image"]}/>
+                    <Img src={item["image"]}/>
                     <Detail className="detail">
                         <XButtonDiv onClick={switchDetail}><i className="fa-solid fa-square-xmark"></i></XButtonDiv>
-                        <H2>{post["title"]}</H2>
-                        <Img2 src={post["image"]}/>
-                        {/* <div>Ingredients: {post["extendedIngredients"][0]["name"]}</div> */}
+                        <H2>{item["title"]}</H2>
+                        <Img2 src={item["image"]}/>
                         <IngredientsDiv>
                             <h3>Ingredients:</h3>
                             <p>
-                                {post["extendedIngredients"].map((val,index)=>(
+                                {item["extendedIngredients"].map((val,index)=>(
                                 <span key={index}>{val.name},&nbsp;</span>
                                 ))}
                             </p>
@@ -50,7 +69,7 @@ export default function RecipesList({list}){
                     </Detail>
                     <ButtonDiv>
                         <button onClick={switchDetail}>More</button>
-                        <button>Add</button>
+                        <button id={item["id"]} onClick={addFavoriteRecipes}>Add</button>
                     </ButtonDiv>
                 </Li>
                 ))}
