@@ -12,13 +12,11 @@ export default function ItemsBuyList() {
 	});
 
 	const uniqueIngredient = [...new Set(newItems)];
-	console.log("newItems: ", newItems);
+	// console.log("newItems: ", newItems);
 	console.log("uniqueIngredient: ", uniqueIngredient);
 	return (
 		<ul>
-			{/* {newItems.map((items) => (
-				<ItemsBuy contents={items} />
-			))} */}
+			<ItemsBuy contents={uniqueIngredient} />
 		</ul>
 	);
 }
