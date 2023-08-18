@@ -1,21 +1,28 @@
-import FavoriteRecipeItem from "./FavoriteRecipeItem";
-import data from "../../backend/data/recipes.json";
 import styled from "styled-components";
+import { useContext } from "react";
+
+import FavoriteRecipeItem from "./FavoriteRecipeItem";
+import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 function FavoriteRecipeList() {
-  
-  return(
-    <FavoriteRecipeDiv>
-      {data.recipes.map((recipe) => (
-        <FavoriteRecipeItem key={recipe.id} title={recipe.title} content={recipe.instructions} image={recipe.image}/>
-      ))}
-    </FavoriteRecipeDiv>
-  )
-};
+	const { favoriteRecipes } = useContext(FavoritesRecipes);
+	return (
+		<FavoriteRecipeDiv>
+			{favoriteRecipes.map((recipe) => (
+				<FavoriteRecipeItem
+					key={recipe.id}
+					title={recipe.title}
+					content={recipe.instructions}
+					image={recipe.image}
+				/>
+			))}
+		</FavoriteRecipeDiv>
+	);
+}
 
 export default FavoriteRecipeList;
 
 const FavoriteRecipeDiv = styled.div`
-  width: 60vw;
-  margin: 0 auto;
-`
+	width: 60vw;
+	margin: 0 auto;
+`;
