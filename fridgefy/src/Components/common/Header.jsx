@@ -1,54 +1,96 @@
-import React , { useContext } from 'react';
-import { User } from '../../Context/UserContext'
-import { Link } from 'react-router-dom'
+import React, { useContext } from "react";
+import { User } from "../../Context/UserContext";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+
 
 
 function Header(props) {
-    const { googleSignIn, googleLogOut, user } = useContext(User)
+  const { googleSignIn, googleLogOut, user } = useContext(User);
+  const navigate = useNavigate()
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const handleGoogleLogOut = async () => {
+    try {
+      await googleLogOut();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+    const handleclick = (local) => {
+      
+    navigate(`/${local}`)
+  }
+
+  if (!user) {
+    return (
+        <StyledDiv>
+            <h1>Fridgefy</h1>
+            <StyledButton onClick={handleGoogleSignIn}>LOGIN</StyledButton>        
+        </StyledDiv>
     
+    );
+  }
 
-      const handleGoogleSignIn = async () => {
-        try{
-            await googleSignIn()
-        } catch(e){
-            console.log(e);
-        }
-        console.log("EVENT");
-    }
+  return (
+      <StyledDiv>
+        <h1>FridgeFy</h1>
+      <StyledLinksContainer>
+        
+        <button onClick={()=>{
+          navigate('/home')
+        }}>Home
+        </button>
 
+        <button onClick={()=>{
+          navigate('/recipes')
+        }}>
+          Recipes
+        </button>
+        
+        <button onClick={()=>{
+          navigate('/shoppinglist')
+        }}>
+          Shopping List
+        </button>
+      </StyledLinksContainer>
+      <div>
 
-    const handleGoogleLogOut = async () => {
-        try{
-            await googleLogOut()
-        } catch(e){
-            console.log(e);
-        }
-    }
-
-    if(!user){
-        return (
-            <>
-            <div>Make your login, please:</div>
-            <button onClick={handleGoogleSignIn}>LOGIN</button>
-            </>
-
-        )
-    }
-
-    return(
-        <>
-        <div>Hi, {user.displayName}</div>
-        <div>Make your logOut:</div>
-        <button onClick={handleGoogleLogOut}>LOGOUT</button>
-        <div>
-
-        <Link to="/home" relative='path'>Home</Link>
-        <Link to="/recipes" relative='path'>Recipes</Link>
-        <Link to="/shoppingList" relative='path'>Shopping List</Link>
-        </div>
-        </>
-    )
+      <div>Hi, {user.displayName}</div>
+      <button onClick={handleGoogleLogOut}>LOGOUT</button>
+      </div>
     
+      </StyledDiv>
+  );
 }
 
 export default Header;
+
+const StyledDiv = styled.div`
+    background: #40b5c9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+`
+
+const StyledButton = styled.button`
+    height: 100%;
+    font-family: 'DM Mono', monospace;
+    cursor: pointer; 
+`
+
+const StyledLinksContainer = styled.div`
+    display: flex;
+    justify-content: space-between
+`
