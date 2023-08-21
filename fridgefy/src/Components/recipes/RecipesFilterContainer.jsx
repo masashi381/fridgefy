@@ -2,13 +2,14 @@ import { useState, useReducer, useEffect } from "react";
 import RecipesFilter from "./RecipesFilter";
 import axios from 'axios'
 
-function RecipesFilterContainer({ list, setList, setRandomList }) {
+function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
   const [innerState, setInnerState] = useState([])
   
 
   useEffect(()=>{
     setList(innerState)
+    setOptions(innerState)
 
   },[innerState])
 
@@ -191,8 +192,6 @@ function RecipesFilterContainer({ list, setList, setRandomList }) {
         
         axios.get(url).then((response)=>{
           setInnerState((prev)=>{
-            console.log("prev", prev)
-            console.log("response", response.data)
             return [...prev, response.data]
           })
         })

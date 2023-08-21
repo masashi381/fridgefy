@@ -8,6 +8,8 @@ function RecipesAutoSearch({list, setSearchedItem}) {
     // the string searched and for the second the results.
     // console.log("string", string)
     // console.log("results", results)
+    console.log("options", list)
+
   }
 
   const handleOnHover = (result) => {
@@ -17,7 +19,6 @@ function RecipesAutoSearch({list, setSearchedItem}) {
 
   const handleOnSelect = (item) => {
     setSearchedItem(item)
-    console.log(item)
   }
 
   const handleOnFocus = () => {
@@ -26,7 +27,6 @@ function RecipesAutoSearch({list, setSearchedItem}) {
 
   const handleOnClear = () => {
     setSearchedItem([])
-    console.log("clear")
   }
 
   const formatResult = (item) => {
