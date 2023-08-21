@@ -1,8 +1,8 @@
-import FridgefyDiv from "./Components/Fridgefy.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { User } from './Context/UserContext.jsx'
 import { useContext, useEffect } from "react";
 import Header from "./Components/common/Header.jsx";
+import HomePage from "./Pages/Home.jsx"
 
 
 function App() {
@@ -20,8 +20,10 @@ function App() {
 
   return (
 
-    
-      <Header></Header>
+      <>
+      <HomePage/>
+      </>
+      
     
     
 
