@@ -10,12 +10,18 @@ function MyFridgeInput() {
   const [suggestedIngredients, setSuggestedIngredients] = useState([]);
   
   
-  const handleAddToFridge = (ingredient) => {
+  const handleAddToFridge = () => {
     const ingredientValue = document.querySelector("input").value;
-    // console.log(ingredientValue);
-    addIngredientToFridge(ingredientValue);
-    // console.log("event")
-    
+    if (ingredientValue) {
+      if(!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
+        addIngredientToFridge(ingredientValue);
+      } else if (fridge.includes(ingredientValue)) {
+        alert("Ingredient already in the fridge");
+      }
+    } if (!ingredients.includes(ingredientValue)){
+      alert("Not an Ingredient")
+      
+    }
   };
   
   let ingredients = [];
@@ -60,18 +66,14 @@ function MyFridgeInput() {
       </datalist>
      </div>
   );
-}
+};
 
 const ButtonStyle = styled.button`
   display: inline-block;
-  background-color: blue;
+  background-color: gray;
+  box-shadow: 2px 2px black;
   color: white;
   margin-left: .5rem;
-`;
-
-const HidingUl = styled.ul`
-  display: none
-  
+  border-radius: 25px;
 `
-
 export default MyFridgeInput;
