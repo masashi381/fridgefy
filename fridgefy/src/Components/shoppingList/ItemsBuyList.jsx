@@ -8,13 +8,13 @@ import { MyFridgeContext } from "../../Context/MyFridgeContext";
 export default function ItemsBuyList() {
 	const [checkItems, setCheckItems] = useState([]);
 
-	const { favoriteRecipes } = useContext(FavoritesRecipes);
+	const { favoriteRecipes, state } = useContext(FavoritesRecipes);
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
 
 	console.log("fridge", fridge);
 
-	favoriteRecipes.forEach((recipe) => {
+	state.forEach((recipe) => {
 		recipe.extendedIngredients.forEach((ingredient) => {
 			newItems.push(ingredient.name);
 		});
@@ -28,9 +28,12 @@ export default function ItemsBuyList() {
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
 	return (
-		<ul>
-			<ItemsBuy contents={uniqueIngredient} />
-		</ul>
+		<div>
+			<h3>Items to buy</h3>
+			<ul>
+				<ItemsBuy contents={uniqueIngredient} />
+			</ul>
+		</div>
 	);
 }
 
