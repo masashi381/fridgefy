@@ -2,15 +2,18 @@ import { useState, useReducer, useEffect } from "react";
 import RecipesFilter from "./RecipesFilter";
 import axios from 'axios'
 
-function RecipesFilterContainer({ list, setList }) {
+function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
   const [innerState, setInnerState] = useState([])
+  
 
   useEffect(()=>{
     setList(innerState)
+    setOptions(innerState)
+
   },[innerState])
 
-  console.log("innerState", innerState)
+
 
   const optionFilters = [
     {
@@ -161,6 +164,15 @@ function RecipesFilterContainer({ list, setList }) {
 
 
   const submitRequest = () => {
+    
+  
+    setInnerState([]);
+    
+    if(filters[0].cuisine.length === 0 && filters[1].diet.length === 0 && filters[2].intolerances.length === 0){      
+      return setRandomList()
+    }
+
+
     console.log("GET");
     const key = import.meta.env.VITE_SERVER_API_KEY
     let cuisines = mountStringFilter(filters[0])
@@ -170,9 +182,11 @@ function RecipesFilterContainer({ list, setList }) {
     let baseUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&${cuisines ? cuisines+"&" : ""}${diets ? diets+"&" : ""}${intolerances ? intolerances+"&": ""}`
     baseUrl = baseUrl.substring(0, baseUrl.length - 1);
     let nOfRecipes = 2;
-
     
-    axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response)=>{    
+    axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response)=>{
+    
+      
+      
       response.data.results.map((result)=>{
         let url = `https://api.spoonacular.com/recipes/${result.id}/information?apiKey=${key}`
         
@@ -183,8 +197,27 @@ function RecipesFilterContainer({ list, setList }) {
         })
       })
     })
+
     
+
   };
+
+
+  const getRecipeInformation = async (response) => {
+    let recipesInformationList = []
+    const key = import.meta.env.VITE_SERVER_API_KEY
+
+    await response.data.results.map((result)=>{
+        let url = `https://api.spoonacular.com/recipes/${result.id}/information?apiKey=${key}`
+        
+        axios.get(url).then((response)=>{
+          console.log("Response inside newFn", response.data)
+          recipesInformationList.push(response.data)
+        })
+      })
+      console.log("recipesList", recipesInformationList)
+      return recipesInformationList
+  }
 
   return (
     <>
@@ -198,7 +231,11 @@ function RecipesFilterContainer({ list, setList }) {
         options={optionsIntolerances}
         dispatch={dispatch}
       />
-      <RecipesFilter name="diet" options={optionsDiets} dispatch={dispatch} />
+      <RecipesFilter 
+        name="diet" 
+        options={optionsDiets} 
+        dispatch={dispatch} 
+      />
       <button onClick={submitRequest}>Filter</button>
     </>
   );
