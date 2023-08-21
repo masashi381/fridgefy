@@ -1,16 +1,26 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useReducer } from "react";
 
 export const FavoritesRecipes = createContext();
 
-export function FavoritesRecipesContext({children}) {
+const reducer = (state, action) => {
+	console.log("action", action.payload);
+	switch (action.type) {
+		case "add":
+			return [...state, action.payload];
+		case "delete":
+			return state.filter((t) => t.id !== action.id);
+	}
+};
 
-    const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+export function FavoritesRecipesContext({ children }) {
+	const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
-    return (
-        <FavoritesRecipes.Provider value={{favoriteRecipes, setFavoriteRecipes}}>
-            {children}
-        </FavoritesRecipes.Provider>
-    );
+	const [state, dispatch] = useReducer(reducer, []);
+	console.log("state: " + state);
+
+	return (
+		<FavoritesRecipes.Provider value={{ favoriteRecipes, setFavoriteRecipes, state, dispatch }}>
+			{children}
+		</FavoritesRecipes.Provider>
+	);
 }
-
-
