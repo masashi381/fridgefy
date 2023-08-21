@@ -5,15 +5,18 @@ import FavoriteRecipeItem from "./FavoriteRecipeItem";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 function FavoriteRecipeList() {
-	const { favoriteRecipes } = useContext(FavoritesRecipes);
+	// const { favoriteRecipes } = useContext(FavoritesRecipes);
+	const { state } = useContext(FavoritesRecipes);
+	console.log("stateUpdated", state);
 	return (
 		<FavoriteRecipeDiv>
-			{favoriteRecipes.map((recipe) => (
+			{state.map((recipe) => (
 				<FavoriteRecipeItem
 					key={recipe.id}
-					title={recipe.title}
-					content={recipe.instructions}
-					image={recipe.image}
+					recipe={recipe}
+					// title={recipe.title}
+					// content={recipe.instructions}
+					// image={recipe.image}
 				/>
 			))}
 		</FavoriteRecipeDiv>
