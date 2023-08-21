@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { MyFridge, MyFridgeContext } from '../Context/MyFridgeContext';
+import { MyFridge, MyFridgeContext } from '../../Context/MyFridgeContext';
 import styled from 'styled-components';
 
 function MyFridgeList() {

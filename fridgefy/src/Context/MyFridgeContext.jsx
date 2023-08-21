@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-export const MyFridgeContext = createContext(null);
+export const MyFridgeContext = createContext();
 
 export function MyFridge({ children }) {
 	const [fridge, setFridge] = useState([]);
