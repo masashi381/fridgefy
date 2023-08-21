@@ -17,10 +17,6 @@ function Recipes() {
     const [searchItem, setSearchedItem] = useState([])
     
     useEffect(()=>{
-            console.log("useEffect")
-            console.log("searchedItem", searchItem)
-            console.log("recipesLIst", recipesList)
-
             if(Object.values(searchItem).length < 2){
                 getRandomRecipes()
                 // setRecipesList(recipes.recipes)
@@ -44,17 +40,37 @@ function Recipes() {
 
     const getSearchedRecipe = (id) =>{    
         const result = Object.values(recipesList).filter((key)=>{
-            console.log(key.id === id)
             return key.id === id;
         })
         return setRecipesList(result)
     }
 
+    const getOptionsToSearch = (list) =>{
+        setItems([])
+        list.map((recipe)=>{
+            console.log("Recipe", recipe)
+            setItems((prev)=>{
+                return [...prev, {id:recipe.id, name: recipe.title}]
+            })
+        })
+        console.log("Items", items)
+    }
+
     return (
         <>
-        <RecipesFilterContainer list={recipesList} setList={setRecipesList} setRandomList={getRandomRecipes}/>
-        <RecipesList list={recipesList}/>
-        <RecipesAutoSearch list={items} setSearchedItem={setSearchedItem}/>
+        <RecipesFilterContainer 
+            list={recipesList} 
+            setList={setRecipesList} 
+            setRandomList={getRandomRecipes}
+            setOptions={getOptionsToSearch}
+        />
+        <RecipesList 
+            list={recipesList}
+        />
+        <RecipesAutoSearch 
+            list={items} 
+            setSearchedItem={setSearchedItem}
+        />
         </>
     );
 }

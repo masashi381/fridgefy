@@ -54,6 +54,7 @@ export default function RecipesList({ list }) {
 				{subset.map((item, index) => (
 					<Li key={index} className={index}>
 						<Img src={item["image"]} />
+						<H2>{item["title"]}</H2>
 						<Detail className="detail">
 							<XButtonDiv onClick={switchDetail}>
 								<i className="fa-solid fa-square-xmark"></i>
