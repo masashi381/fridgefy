@@ -3,6 +3,7 @@ import ItemsBuyList from "../Components/shoppingList/ItemsBuyList";
 import MyFridgeInput from "../Components/common/MyFridgeInput";
 import MyFridgeList from "../Components/common/MyFridgeList";
 
+
 import styled from "styled-components";
 import Header from "../Components/common/Header";
 
