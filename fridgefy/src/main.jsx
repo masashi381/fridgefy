@@ -45,7 +45,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
+	<>
 		<GlobalStyle />
 		<UserContext>
 			<FavoritesRecipesContext>
@@ -54,5 +54,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 				</MyFridge>
 			</FavoritesRecipesContext>
 		</UserContext>
-	</React.StrictMode>
+	</>
 );
