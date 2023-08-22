@@ -11,5 +11,5 @@ export function MyFridge({ children }) {
 		});
 	};
 
-	return <MyFridgeContext.Provider value={{ fridge, addIngredientToFridge }}>{children}</MyFridgeContext.Provider>;
+	return <MyFridgeContext.Provider value={{ fridge, addIngredientToFridge, setFridge }}>{children}</MyFridgeContext.Provider>;
 }
