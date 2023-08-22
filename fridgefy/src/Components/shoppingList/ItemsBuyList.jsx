@@ -36,7 +36,7 @@ export default function ItemsBuyList() {
 }
 
 const Div = styled.div`
-	width: 20vw;
+	width: 30vw;
 	h3 {
 		text-align: center;
 	}
