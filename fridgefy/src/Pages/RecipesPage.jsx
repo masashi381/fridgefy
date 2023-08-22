@@ -1,29 +1,25 @@
-import Header from "../Components/common/Header"
-import Recipes from "../Components/recipes/Recipes"
-import MyFridgeList from "../Components/common/MyFridgeList"
-import MyFridgeInput from "../Components/common/MyFridgeInput"
-import MyFridgeComponent from "../Components/common/MyFridgeComponent"
-import MyRecipesSec from "../Components/recipes/MyRecipes"
-import styled from "styled-components"
+import Header from "../Components/common/Header";
+import Recipes from "../Components/recipes/Recipes";
+import MyFridgeComponent from "../Components/common/MyFridgeComponent";
+import MyRecipesSec from "../Components/recipes/MyRecipes";
+import styled from "styled-components";
+import FooterComponent from "../Components/common/FooterComponent";
 
-export default function RecipesPageSection(){
-
-    return (
-        <section>
-            <Header></Header>
-            <RecipesPageDiv>
-
-                <MyFridgeComponent/>
-                <Recipes/>
-                <MyRecipesSec/>
-
-            </RecipesPageDiv>
-            
-        </section>
-    )
+export default function RecipesPageSection() {
+	return (
+		<section>
+			<Header></Header>
+			<RecipesPageDiv>
+				<MyFridgeComponent />
+				<Recipes />
+				<MyRecipesSec />
+			</RecipesPageDiv>
+			<FooterComponent />
+		</section>
+	);
 }
 
-const RecipesPageDiv=styled.div`
-    display: flex;
-    justify-content: space-between;
+const RecipesPageDiv = styled.div`
+	display: flex;
+	justify-content: space-between;
 `;

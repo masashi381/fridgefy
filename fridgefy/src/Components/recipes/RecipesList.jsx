@@ -5,7 +5,6 @@ import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 export default function RecipesList({ list }) {
 	const [currentPage, setCurrentPage] = useState(0);
-	// const { favoriteRecipes, setFavoriteRecipes } = useContext(FavoritesRecipes);
 	const { dispatch } = useContext(FavoritesRecipes);
 
 	const itemsPerPage = 15;
@@ -32,9 +31,6 @@ export default function RecipesList({ list }) {
 	const addFavoriteRecipes = (e) => {
 		const favorite = filterRecipesList(e.target.id);
 		console.log("favorite", favorite);
-		// setFavoriteRecipes((prev) => {
-		// 	return [...prev, favorite];
-		// });
 		dispatch({ type: "add", payload: favorite });
 	};
 

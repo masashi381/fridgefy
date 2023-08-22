@@ -5,19 +5,12 @@ import FavoriteRecipeItem from "./FavoriteRecipeItem";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 function FavoriteRecipeList() {
-	// const { favoriteRecipes } = useContext(FavoritesRecipes);
 	const { state } = useContext(FavoritesRecipes);
 	console.log("stateUpdated", state);
 	return (
 		<FavoriteRecipeDiv>
 			{state.map((recipe) => (
-				<FavoriteRecipeItem
-					key={recipe.id}
-					recipe={recipe}
-					// title={recipe.title}
-					// content={recipe.instructions}
-					// image={recipe.image}
-				/>
+				<FavoriteRecipeItem key={recipe.id} recipe={recipe} />
 			))}
 		</FavoriteRecipeDiv>
 	);
@@ -26,6 +19,8 @@ function FavoriteRecipeList() {
 export default FavoriteRecipeList;
 
 const FavoriteRecipeDiv = styled.div`
-	width: 60vw;
-	margin: 0 auto;
+	width: 50vw;
+	/* margin: 0; */
+	border: 2px solid #ccc;
+	padding: 10px;
 `;

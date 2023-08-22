@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 import ItemsBuy from "./ItemsBuy";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
 export default function ItemsBuyList() {
-	const [checkItems, setCheckItems] = useState([]);
-
-	const { favoriteRecipes, state } = useContext(FavoritesRecipes);
+	const { state } = useContext(FavoritesRecipes);
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
 
@@ -28,15 +26,22 @@ export default function ItemsBuyList() {
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
 	return (
-		<div>
+		<Div>
 			<h3>Items to buy</h3>
-			<ul>
+			<Ul>
 				<ItemsBuy contents={uniqueIngredient} />
-			</ul>
-		</div>
+			</Ul>
+		</Div>
 	);
 }
 
 const Div = styled.div`
-	width: 20vw;
+	width: 30vw;
+	h3 {
+		text-align: center;
+	}
+`;
+
+const Ul = styled.ul`
+	padding-left: 0;
 `;
