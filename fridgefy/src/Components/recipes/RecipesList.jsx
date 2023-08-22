@@ -20,7 +20,7 @@ export default function RecipesList({ list }) {
 			});
 		}
 		const targrt = e.target.closest("li").querySelector(".detail");
-		targrt.style.top = window.pageYOffset + "px";
+		targrt.style.top = window.pageYOffset - 150 + "px";
 		targrt.style.display = targrt.style.display == "block" ? "none" : "block";
 	};
 
@@ -50,6 +50,7 @@ export default function RecipesList({ list }) {
 				{subset.map((item, index) => (
 					<Li key={index} className={index}>
 						<Img src={item["image"]} />
+						<H2>{item["title"]}</H2>
 						<Detail className="detail">
 							<XButtonDiv onClick={switchDetail}>
 								<i className="fa-solid fa-square-xmark"></i>
