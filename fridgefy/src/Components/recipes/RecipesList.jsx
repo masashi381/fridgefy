@@ -21,7 +21,7 @@ export default function RecipesList({ list }) {
 			});
 		}
 		const targrt = e.target.closest("li").querySelector(".detail");
-		targrt.style.top = window.pageYOffset + "px";
+		targrt.style.top = window.pageYOffset - 150 + "px";
 		targrt.style.display = targrt.style.display == "block" ? "none" : "block";
 	};
 
