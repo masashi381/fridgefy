@@ -36,6 +36,13 @@ function Recipes() {
             })
             setRecipesList(response.data.recipes)
         })
+        
+        // recipes.recipes.map((recipe)=>{
+        //     setItems((prev)=>{
+        //         return [...prev, {id: recipe.id, name: recipe.title}]
+        //     }) 
+        // })
+        // setRecipesList(recipes.recipes)
     }
 
     const getSearchedRecipe = (id) =>{    
@@ -57,21 +64,21 @@ function Recipes() {
     }
 
     return (
-        <>
-        <RecipesFilterContainer 
-            list={recipesList} 
-            setList={setRecipesList} 
-            setRandomList={getRandomRecipes}
-            setOptions={getOptionsToSearch}
-        />
-        <RecipesList 
-            list={recipesList}
-        />
-        <RecipesAutoSearch 
-            list={items} 
-            setSearchedItem={setSearchedItem}
-        />
-        </>
+        <div>
+            <RecipesFilterContainer 
+                list={recipesList} 
+                setList={setRecipesList} 
+                setRandomList={getRandomRecipes}
+                setOptions={getOptionsToSearch}
+            />
+            <RecipesList 
+                list={recipesList}
+            />
+            <RecipesAutoSearch 
+                list={items} 
+                setSearchedItem={setSearchedItem}
+            />
+        </div>
     );
 }
 
