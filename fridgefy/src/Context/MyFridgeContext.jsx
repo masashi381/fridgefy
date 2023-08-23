@@ -5,11 +5,8 @@ export const MyFridgeContext = createContext();
 export function MyFridge({ children }) {
 	const [fridge, setFridge] = useState([]);
 
-
 	const handlecheck = (ing) => {
-
 		let newState = [];
-
 		Object.keys(fridge).map((key)=>{
 			let newObject = {}
 			let name = fridge[key].name
