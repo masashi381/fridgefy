@@ -8,6 +8,7 @@ function MyFridgeList() {
     const { fridge, setFridge } = useContext(MyFridgeContext);
 
     const onDelete = (ingredient) => {
+      localStorage.removeItem(ingredient)
       const updatedList = fridge.filter(item => item !== ingredient);
       setFridge(updatedList);
     }

@@ -6,8 +6,14 @@ const reducer = (state, action) => {
 	console.log("action", action.payload);
 	switch (action.type) {
 		case "add":
-			return [...state, action.payload];
+			if(!state.includes(action.payload)){
+				localStorage.setItem(action.payload.id, JSON.stringify(action.payload))
+				return [...state, action.payload];
+			}else{
+				alert("Recipe already exists in the list.")
+			}
 		case "delete":
+			localStorage.removeItem(action.id)
 			return state.filter((t) => t.id !== action.id);
 	}
 };
@@ -15,7 +21,14 @@ const reducer = (state, action) => {
 export function FavoritesRecipesContext({ children }) {
 	const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
-	const [state, dispatch] = useReducer(reducer, []);
+	let initState=[];
+	Object.keys(localStorage).map(val=>{
+		if(val!==localStorage.getItem(val)){
+			initState.push(JSON.parse(window.localStorage.getItem(val)))
+		}
+	});
+
+	const [state, dispatch] = useReducer(reducer, initState);
 	console.log("state: " + state);
 
 	return (
