@@ -3,15 +3,16 @@ import HomeIntro from "./HomeIntro";
 import styled from "styled-components";
 
 export default function HomeContent() {
-  return (
-    <FlexDiv>
-      <HomeImg />
-      <HomeIntro/>
-    </FlexDiv>
-  )
-};
+	return (
+		<StyledDiv>
+			{/* <HomeImg /> */}
+			<HomeIntro />
+		</StyledDiv>
+	);
+}
 
-const FlexDiv = styled.div`
-  display: flex;
-  align-items: center;
-`
+const StyledDiv = styled.div`
+	height: 80vh;
+	background: center/cover no-repeat url("../assets/images/homeImage.jpg");
+	position: relative;
+`;
