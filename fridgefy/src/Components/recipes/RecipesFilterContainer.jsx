@@ -1,16 +1,16 @@
-import { useState, useReducer, useEffect } from "react";
+import { useState, useReducer, useEffect, useContext } from "react";
 import RecipesFilter from "./RecipesFilter";
 import axios from 'axios'
+import {  MyFridgeContext } from '../../Context/MyFridgeContext';
 
 function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
   const [innerState, setInnerState] = useState([])
-  
+  const { fridge } = useContext(MyFridgeContext);  
 
   useEffect(()=>{
     setList(innerState)
     setOptions(innerState)
-
   },[innerState])
 
 
@@ -157,67 +157,56 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
     if(result === query) {
       return ""
     } else {
-      console.log(result)
       return result
     }
   }
 
 
+  const checkedFrigeItems = () =>{
+    let result = "";
+    Object.keys(fridge).map((key)=>{
+      if(fridge[key].checked){
+          if(result === ""){
+            result = "&" + result +"includeIngredients=" + fridge[key].name
+          } else {
+            result = result + "," + fridge[key].name
+          }
+      } 
+    })
+    return result;
+  }
+
+
   const submitRequest = () => {
     
-  
     setInnerState([]);
-    
-    if(filters[0].cuisine.length === 0 && filters[1].diet.length === 0 && filters[2].intolerances.length === 0){      
+    let queryIngredients = checkedFrigeItems()
+    if(filters[0].cuisine.length === 0 && filters[1].diet.length === 0 && filters[2].intolerances.length === 0 && queryIngredients === ""){      
       return setRandomList()
     }
 
-
-    console.log("GET");
     const key = import.meta.env.VITE_SERVER_API_KEY
     let cuisines = mountStringFilter(filters[0])
     let diets = mountStringFilter(filters[1])
     let intolerances = mountStringFilter(filters[2])
 
-    let baseUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${key}&${cuisines ? cuisines+"&" : ""}${diets ? diets+"&" : ""}${intolerances ? intolerances+"&": ""}`
-    baseUrl = baseUrl.substring(0, baseUrl.length - 1);
+    let baseUrl = `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&fillIngredients=true&apiKey=${key}&${cuisines ? cuisines+"&" : ""}${diets ? diets+"&" : ""}${intolerances ? intolerances+"&": ""}`
+    baseUrl = baseUrl.substring(0, baseUrl.length - 1)+queryIngredients;
+
+    console.log("baseURL", baseUrl)
+
     let nOfRecipes = 2;
     
     axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response)=>{
-    
-      
-      
       response.data.results.map((result)=>{
-        let url = `https://api.spoonacular.com/recipes/${result.id}/information?apiKey=${key}`
-        
-        axios.get(url).then((response)=>{
           setInnerState((prev)=>{
-            return [...prev, response.data]
+            return [...prev, result]
           })
-        })
+        console.log("result", result)
+
       })
     })
-
-    
-
-  };
-
-
-  const getRecipeInformation = async (response) => {
-    let recipesInformationList = []
-    const key = import.meta.env.VITE_SERVER_API_KEY
-
-    await response.data.results.map((result)=>{
-        let url = `https://api.spoonacular.com/recipes/${result.id}/information?apiKey=${key}`
-        
-        axios.get(url).then((response)=>{
-          console.log("Response inside newFn", response.data)
-          recipesInformationList.push(response.data)
-        })
-      })
-      console.log("recipesList", recipesInformationList)
-      return recipesInformationList
-  }
+};
 
   return (
     <>
