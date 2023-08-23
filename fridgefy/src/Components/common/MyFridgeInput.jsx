@@ -14,7 +14,7 @@ function MyFridgeInput() {
     const ingredientValue = document.querySelector("input").value;
     if (ingredientValue) {
       if(!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
-        addIngredientToFridge(ingredientValue);
+        addIngredientToFridge(ingredientValue, false);
       } else if (fridge.includes(ingredientValue)) {
         alert("Ingredient already in the fridge");
       }
