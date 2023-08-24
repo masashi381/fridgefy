@@ -52,7 +52,6 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 export default RecipesAutoSearch;
 
 const style = {
-	width: "50vw",
 	backgroundColor: "black",
 	color: "white",
 };

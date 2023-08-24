@@ -55,7 +55,7 @@ export default function RecipesList({ list }) {
 							<div className="deleteBtn" onClick={switchDetail}>
 								<i className="fa-solid fa-square-xmark fa-2xl my-style"></i>
 							</div>
-							<h2>{item["title"]}</h2>
+							<h2 className="titleInMore">{item["title"]}</h2>
 							<img src={item["image"]} />
 							<div className="info">
 								<h3>Ingredients:</h3>
@@ -67,8 +67,10 @@ export default function RecipesList({ list }) {
 							</div>
 						</div>
 						<div className="btnContainer">
-							<button onClick={switchDetail}>More</button>
-							<button id={item["id"]} onClick={addFavoriteRecipes}>
+							<button className="moreBtn" onClick={switchDetail}>
+								More
+							</button>
+							<button id={item["id"]} className="addBtn" onClick={addFavoriteRecipes}>
 								Add
 							</button>
 						</div>
@@ -103,7 +105,9 @@ const Ul = Styled.ul`
 		box-sizing: border-box;
 		background: #1982c4;
 		img{
-			width: 100%;
+			width:  21.8rem;
+			height: 15rem;
+			object-fit: cover;
 		}
 		h2 {			
 			text-align: center;
@@ -136,10 +140,15 @@ const Ul = Styled.ul`
 					color: #ff595e;
 				}
 			}
+			.titleInMore{
+				color: #1982c4;
+			}
 			img{
         display: block;
-				width: 80%;
+				width: 36rem;
+				height: auto;
         margin: 0 auto;
+				object-fit: cover;
 			}
 			.info{
 				width: 80%;
@@ -163,81 +172,38 @@ const Ul = Styled.ul`
 			display: flex;
 			justify-content: space-evenly;
 			padding: 1rem;
+			button{
+				background-color:#ffca3a;
+				font-family: "DM Mono", monospace;
+				font-weight: 400;
+				cursor: pointer;
+				margin-right: 1rem;
+				border-radius: 3rem;
+				border: none;
+				border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+				&:hover {
+					opacity: 0.5;
+				}
+				&:active {
+					transform: translateY(0.2rem);
+					border-bottom: none;
+				}
+			}
 		}
 	}
 `;
 
-// const Li = Styled.li`
-//         width: 220px;
-//         border: 1px solid grey;
-//         margin: 10px 0;
-//         box-sizing: border-box;
-//         background: #1982c4;
-// `;
-
-// const Detail = Styled.div`
-// 	display:none;
-// 	position: absolute;
-// 	top:0;
-// 	left: 50%;
-// 	transform: translateX(-50%);
-// 	background-color: rgba(255, 255, 255, 0.9);
-// 	width: 70%;
-// 	border: 1px solid grey;
-// 	box-sizing: border-box;
-// `;
-
-// const XButtonDiv = Styled.div`
-//         position: absolute;
-//         top:3px;
-//         right:3px;
-//         width: 15px;
-//         height: 15px;
-// `;
-
-// const H2 = Styled.h2`
-//         text-align: center;
-//         margin: 10px auto;
-// `;
-
-// const Img = Styled.img`
-//         width: 100%;
-// `;
-
-// const Img2 = Styled.img`
-//         width: 80%;
-//         margin: 0 auto;
-//         display: block;
-// `;
-
-// const ButtonDiv = Styled.div`
-//         display: flex;
-//         justify-content: space-evenly;
-//         padding: 10px;
-// `;
-
 const StyledReactPaginate = Styled(ReactPaginate)`
-        display: flex;
-        list-style: none;
-        width: fit-content;
-        margin: 0 auto;
-        padding: 0;
-        li {
-            margin: 10px;
-            padding: 5px;
-        }
-        li.selected {
-            background-color: lightgreen;
-        }
-    `;
-
-// const IngredientsDiv = Styled.div`
-//     width: 80%;
-//     margin: 0 auto;
-//         h3 {
-//             margin-bottom: 0;
-//         }
-//         p {
-//             margin-top: 5px;
-//         }
-//     `;
+	display: flex;
+	list-style: none;
+	width: fit-content;
+	margin: 0 auto;
+	padding: 0;
+	li {
+		margin: 10px;
+		padding: 5px;
+	}
+	li.selected {
+		background-color: #1982c4;
+	}
+`;
