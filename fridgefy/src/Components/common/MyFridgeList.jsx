@@ -26,18 +26,18 @@ function MyFridgeList() {
 		);
 	});
 }
-const DeleteButton = styled.button`
-	background: none;
-	border: none;
-	padding: 0;
-	justify-content: space-between;
-	flex-wrap: nowrap;
-`;
+// const DeleteButton = styled.button`
+// 	background: none;
+// 	border: none;
+// 	padding: 0;
+// 	justify-content: space-between;
+// 	flex-wrap: nowrap;
+// `;
 
 const ListItems = styled.ul`
 	list-style: none;
-	left: 0;
+	width: 80%;
 	padding: 0;
-	width: 50%;
+	margin: 0 auto;
 `;
 export default MyFridgeList;

@@ -6,6 +6,7 @@ import styled from "styled-components";
 function MyFridgeComponent() {
 	return (
 		<MyFridgeDiv>
+			<h2>MyFridge</h2>
 			<MyFridgeInput />
 			<MyFridgeList />
 		</MyFridgeDiv>
@@ -13,11 +14,15 @@ function MyFridgeComponent() {
 }
 
 const MyFridgeDiv = styled.div`
-	/* left: 0%;
-margin-left: 1rem;
-margin-top: 1rem;
-width: 33%; */
-	background-color: #1982c4;
+	width: 25vw;
+	padding-top: 0.5rem;
+	/* background-color: #1982c4; */
+	h2 {
+		text-align: center;
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 1.6rem;
+	}
 `;
 
 export default MyFridgeComponent;

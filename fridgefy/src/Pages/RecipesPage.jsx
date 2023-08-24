@@ -22,7 +22,7 @@ export default function RecipesPageSection() {
 const RecipesPageDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
-	width: 95vw;
+	width: 98vw;
 	height: 80vh;
 	margin: 0 auto;
 `;

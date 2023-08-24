@@ -26,7 +26,7 @@ export default function MyRecipesSec() {
 
 const MyRecipeSection = Styled.section`
     background-color: #1982c4;
-    width: 300px;
+    width: 25vw;
     padding: 0;
     h3 {
         text-align: center;

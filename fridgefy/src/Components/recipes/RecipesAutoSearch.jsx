@@ -36,22 +36,29 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 	};
 
 	return (
-		<ReactSearchAutocomplete
-			items={list}
-			onSearch={handleOnSearch}
-			onHover={handleOnHover}
-			onSelect={handleOnSelect}
-			onFocus={handleOnFocus}
-			autoFocus
-			formatResult={formatResult}
-			onClear={handleOnClear}
-			styling={style}
-		/>
+		<StyledDiv>
+			<ReactSearchAutocomplete
+				items={list}
+				onSearch={handleOnSearch}
+				onHover={handleOnHover}
+				onSelect={handleOnSelect}
+				onFocus={handleOnFocus}
+				autoFocus
+				formatResult={formatResult}
+				onClear={handleOnClear}
+				styling={style}
+			/>
+		</StyledDiv>
 	);
 }
 
 export default RecipesAutoSearch;
 
+const StyledDiv = styled.div`
+	.wrapper {
+		box-sizing: border-box;
+	}
+`;
 const style = {
 	height: "36px",
 	borderRadius: "0.5rem",
