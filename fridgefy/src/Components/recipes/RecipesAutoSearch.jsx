@@ -1,4 +1,5 @@
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import styled from "styled-components";
 
 function RecipesAutoSearch({ list, setSearchedItem }) {
 	const handleOnSearch = (string, results) => {
@@ -52,6 +53,9 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 export default RecipesAutoSearch;
 
 const style = {
-	backgroundColor: "black",
-	color: "white",
+	height: "36px",
+	borderRadius: "0.5rem",
+	fontFamily: "DM Mono, monospace",
+	fontSize: "12px",
+	boxShadow: "none",
 };
