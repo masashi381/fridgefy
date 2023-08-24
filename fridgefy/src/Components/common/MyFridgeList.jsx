@@ -1,46 +1,49 @@
-import React, { useContext, useState } from 'react';
-import {  MyFridgeContext } from '../../Context/MyFridgeContext';
-import styled from 'styled-components';
-
-
+import React, { useContext, useState } from "react";
+import { MyFridgeContext } from "../../Context/MyFridgeContext";
+import styled from "styled-components";
+import MyFridgeItem from "./MyFridgeItem";
 
 function MyFridgeList() {
-    const { fridge, setFridge } = useContext(MyFridgeContext);
+  const { fridge, setFridge } = useContext(MyFridgeContext);
 
-    const onDelete = (ingredient) => {
-      localStorage.removeItem(ingredient)
-      const updatedList = fridge.filter(item => item !== ingredient);
-      setFridge(updatedList);
-    }
-// console.log("Rendering");
+  const onDelete = (ingredient) => {
+    localStorage.removeItem(ingredient)
+    const updatedList = fridge.filter((item) => item.name !== ingredient);
+    setFridge(updatedList);
+  };
+
+  return Object.values(fridge).map((element, index) => {
+
     return (
-    <div>
-  <ListItems>
-          {fridge.map((element, index) => (
-            <ListElement key={index} value={element}>{element}<DeleteButton onClick={() => onDelete(element)}> <img src="../assets/images/deleteItemIcon.png" width={"15px"} height={"15px"}/></DeleteButton></ListElement>
-          ))}
-        </ListItems>
-    </div>
-  )
-          }
+      <MyFridgeItem
+        ingredient={element.name}
+        key={index}
+        setFridge={setFridge}
+        fridge={fridge}
+        onDelete={onDelete}
+        isChecked={element.checked}
+      />
+    );
+  });
+}
 const DeleteButton = styled.button`
   background: none;
   border: none;
   padding: 0;
   justify-content: space-between;
   flex-wrap: nowrap;
-`
-const ListElement = styled.li` 
-display: flex;
-justify-content: space-between;
- text-decoration: none ;
- padding-left: 0;
-`
+`;
+const ListElement = styled.li`
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  padding-left: 0;
+`;
 
 const ListItems = styled.ul`
   list-style: none;
   left: 0;
   padding: 0;
   width: 50%;
-`
-export default MyFridgeList
+`;
+export default MyFridgeList;

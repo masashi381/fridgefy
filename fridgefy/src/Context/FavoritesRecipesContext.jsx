@@ -23,8 +23,8 @@ export function FavoritesRecipesContext({ children }) {
 
 	let initState=[];
 	Object.keys(localStorage).map(val=>{
-		if(val!==localStorage.getItem(val)){
-			initState.push(JSON.parse(window.localStorage.getItem(val)))
+		if(!JSON.parse(localStorage.getItem(val)).name){
+			initState.push(JSON.parse(localStorage.getItem(val)))
 		}
 	});
 

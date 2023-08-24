@@ -12,10 +12,18 @@ function MyFridgeInput() {
   
   const handleAddToFridge = () => {
     const ingredientValue = document.querySelector("input").value;
+    
+    let fridgeIncludes=false;
+    fridge.forEach(val=>{
+      if(val.name==ingredientValue && fridgeIncludes==false){
+        fridgeIncludes=true
+      };
+    })
+
     if (ingredientValue) {
-      if(!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
-        addIngredientToFridge(ingredientValue);
-      } else if (fridge.includes(ingredientValue)) {
+      if(!fridgeIncludes && ingredients.includes(ingredientValue)) {
+        addIngredientToFridge(ingredientValue, false);
+      } else if (fridgeIncludes) {
         alert("Ingredient already in the fridge");
       }
     } if (!ingredients.includes(ingredientValue)){

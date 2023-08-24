@@ -1,11 +1,26 @@
 import Styled from "styled-components";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 export default function RecipesList({ list }) {
+
 	const [currentPage, setCurrentPage] = useState(0);
-	const { dispatch } = useContext(FavoritesRecipes);
+	const { dispatch, state } = useContext(FavoritesRecipes);
+
+	useEffect(()=>{
+		const addBtton=document.querySelectorAll(".addButton")
+		addBtton.forEach(val1=>{
+			let disabled = false;
+			state.forEach(val2=>{
+				if(val1.id == val2.id && disabled == false){
+					disabled=true;
+				}
+			})
+			
+			val1.disabled = disabled? true : false;
+		})
+	})
 
 	const itemsPerPage = 15;
 	const totalPages = Math.ceil(list.length / itemsPerPage);
@@ -68,7 +83,7 @@ export default function RecipesList({ list }) {
 						</Detail>
 						<ButtonDiv>
 							<button onClick={switchDetail}>More</button>
-							<button id={item["id"]} onClick={addFavoriteRecipes}>
+							<button className="addButton" id={item["id"]} onClick={addFavoriteRecipes}>
 								Add
 							</button>
 						</ButtonDiv>
