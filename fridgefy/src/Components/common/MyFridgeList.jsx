@@ -26,13 +26,6 @@ function MyFridgeList() {
 		);
 	});
 }
-// const DeleteButton = styled.button`
-// 	background: none;
-// 	border: none;
-// 	padding: 0;
-// 	justify-content: space-between;
-// 	flex-wrap: nowrap;
-// `;
 
 const ListItems = styled.ul`
 	list-style: none;

@@ -16,6 +16,7 @@ function MyFridgeComponent() {
 const MyFridgeDiv = styled.div`
 	width: 25vw;
 	padding-top: 0.5rem;
+	border-right: 1px solid rgba(100, 100, 100, 0.3);
 	/* background-color: #1982c4; */
 	h2 {
 		text-align: center;

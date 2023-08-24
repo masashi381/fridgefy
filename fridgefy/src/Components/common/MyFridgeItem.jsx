@@ -23,21 +23,13 @@ function MyFridgeItem({ ingredient, onDelete, isChecked }) {
 					onDelete(ingredient);
 				}}
 			>
-				<i class="fa-solid fa-trash"></i>
+				<i className="fa-solid fa-trash"></i>
 			</button>
 		</ListElement>
 	);
 }
 
 export default MyFridgeItem;
-
-// const DeleteButton = styled.button`
-// 	background: none;
-// 	border: none;
-// 	padding: 0;
-// 	justify-content: space-between;
-// 	flex-wrap: nowrap;
-// `;
 
 const ListElement = styled.li`
 	width: 100%;
@@ -52,6 +44,7 @@ const ListElement = styled.li`
 		p {
 			padding-left: 1rem;
 			margin: 0;
+			margin-bottom: 0.5rem;
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
 			font-size: 1.4rem;

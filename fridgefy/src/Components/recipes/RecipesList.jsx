@@ -102,8 +102,9 @@ const Ul = Styled.ul`
 		width: 22rem;
 		border: 1px solid grey;
 		margin: 1rem 0;
-		box-sizing: border-box;
+		border-radius: 0.5rem;
 		background: #1982c4;
+		box-sizing: border-box;
 		img{
 			width:  21.8rem;
 			height: 15rem;
