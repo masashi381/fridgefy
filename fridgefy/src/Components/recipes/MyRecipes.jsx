@@ -1,31 +1,31 @@
 import Styled from "styled-components";
 import { useState, useContext } from "react";
-import { FavoritesRecipes,FavoritesRecipesContext } from "../../Context/FavoritesRecipesContext";
+import { FavoritesRecipes, FavoritesRecipesContext } from "../../Context/FavoritesRecipesContext";
 
-export default function MyRecipesSec(){
-    const { state, dispatch } = useContext(FavoritesRecipes);
-    
-    const deleteRecipe = (id) => {
-        dispatch({ type: "delete", id: id });
+export default function MyRecipesSec() {
+	const { state, dispatch } = useContext(FavoritesRecipes);
+
+	const deleteRecipe = (id) => {
+		dispatch({ type: "delete", id: id });
 	};
 
-    return (
-        <MyRecipeSection>
-            <h3>My Recipes</h3>
-            <MyRecipeUl>
-                {state.map((item,index)=>(
-
-                    <MyRecipeLi>
-                        <div key={index}>{item.title}</div>
-                        <i className="fa-solid fa-trash" onClick={()=>deleteRecipe(item.id)}></i>
-                    </MyRecipeLi>
-                ))}
-            </MyRecipeUl>
-        </MyRecipeSection>
-    )
+	return (
+		<MyRecipeSection>
+			<h3>My Recipes</h3>
+			<MyRecipeUl>
+				{state.map((item, index) => (
+					<MyRecipeLi>
+						<div key={index}>{item.title}</div>
+						<i className="fa-solid fa-trash" onClick={() => deleteRecipe(item.id)}></i>
+					</MyRecipeLi>
+				))}
+			</MyRecipeUl>
+		</MyRecipeSection>
+	);
 }
 
-const MyRecipeSection=Styled.section`
+const MyRecipeSection = Styled.section`
+    background-color: #1982c4;
     width: 300px;
     padding: 0;
     h3 {
@@ -33,12 +33,12 @@ const MyRecipeSection=Styled.section`
     }
 `;
 
-const MyRecipeUl=Styled.ul`
+const MyRecipeUl = Styled.ul`
     padding: 0;
 
 `;
 
-const MyRecipeLi=Styled.li`
+const MyRecipeLi = Styled.li`
     list-style: none;
     display: flex;
     align-items: center;

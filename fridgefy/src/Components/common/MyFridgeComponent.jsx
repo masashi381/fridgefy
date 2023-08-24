@@ -1,23 +1,23 @@
-import React from 'react'
-import MyFridgeInput from './MyFridgeInput'
-import MyFridgeList from './MyFridgeList'
-import styled from "styled-components"
+import React from "react";
+import MyFridgeInput from "./MyFridgeInput";
+import MyFridgeList from "./MyFridgeList";
+import styled from "styled-components";
 
 function MyFridgeComponent() {
-  return (
-    <MyFridgeDiv>
-      <MyFridgeInput/>
-      <MyFridgeList/>
-    </MyFridgeDiv>
-  )
+	return (
+		<MyFridgeDiv>
+			<MyFridgeInput />
+			<MyFridgeList />
+		</MyFridgeDiv>
+	);
 }
 
 const MyFridgeDiv = styled.div`
-left: 0%;
+	/* left: 0%;
 margin-left: 1rem;
 margin-top: 1rem;
-width: 33%;
+width: 33%; */
+	background-color: #1982c4;
+`;
 
-`
-
-export default MyFridgeComponent
+export default MyFridgeComponent;
