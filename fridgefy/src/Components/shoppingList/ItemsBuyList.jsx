@@ -10,7 +10,6 @@ export default function ItemsBuyList() {
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
 
-	console.log("fridge", fridge);
 
 	state.forEach((recipe) => {
 		recipe.extendedIngredients.forEach((ingredient) => {
@@ -19,7 +18,8 @@ export default function ItemsBuyList() {
 	});
 
 	const checkExistingIngredients = newItems.filter((element) => {
-		if (!fridge.includes(element)) {
+		const fridgeArray = Object.keys(fridge).map((key) => fridge[key].name);
+		if (!fridgeArray.includes(element)) {
 			return newItems;
 		}
 	});

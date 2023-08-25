@@ -6,7 +6,6 @@ import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 function FavoriteRecipeList() {
 	const { state } = useContext(FavoritesRecipes);
-	console.log("stateUpdated", state);
 	return (
 		<FavoriteRecipeDiv>
 			{state.map((recipe) => (

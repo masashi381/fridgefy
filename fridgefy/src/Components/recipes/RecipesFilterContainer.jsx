@@ -181,7 +181,8 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
     
     setInnerState([]);
     let queryIngredients = checkedFrigeItems()
-    if(filters[0].cuisine.length === 0 && filters[1].diet.length === 0 && filters[2].intolerances.length === 0 && queryIngredients === ""){      
+    console.log("query", queryIngredients)
+    if(filters[0].cuisine.length === 0 && filters[1].diet.length === 0 && filters[2].intolerances.length === 0 && queryIngredients === ""){    
       return setRandomList()
     }
 
