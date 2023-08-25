@@ -13,7 +13,7 @@ function BtnDelete({ recipe, setDeleteActive }) {
 	return (
 		<>
 			<DeleteSpan onClick={() => deleteHandler(recipe.id)}>
-				<i className="fa-solid fa-trash"></i>
+				<i className="fa-solid fa-trash fa-lg"></i>
 			</DeleteSpan>
 		</>
 	);
@@ -23,4 +23,10 @@ export default BtnDelete;
 
 const DeleteSpan = styled.span`
 	margin-right: 10px;
+	i {
+		color: #ff595e;
+		&:hover {
+			cursor: pointer;
+		}
+	}
 `;
