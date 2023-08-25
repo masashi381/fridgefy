@@ -8,7 +8,7 @@ import FooterComponent from "../Components/common/FooterComponent";
 export default function RecipesPageSection() {
 	return (
 		<section>
-			<Header></Header>
+			<Header />
 			<RecipesPageDiv>
 				<MyFridgeComponent />
 				<Recipes />
@@ -22,4 +22,7 @@ export default function RecipesPageSection() {
 const RecipesPageDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
+	width: 100vw;
+	height: 80vh;
+	margin: 0 auto;
 `;

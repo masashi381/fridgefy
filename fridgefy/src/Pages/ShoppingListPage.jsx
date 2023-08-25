@@ -7,14 +7,15 @@ import FooterComponent from "../Components/common/FooterComponent";
 function ShoppingList() {
 	return (
 		<>
-			<Header></Header>
-			<SoppingListDiv>
+			<Header />
+			<ShoppingListDiv>
 				<MyFridgeComponent />
 				<FavoriteRecipeList />
-				<Div>
-				<ItemsBuyList />
-				</Div>
-			</SoppingListDiv>
+				<div className="itemsBuyList">
+					<h2>Item to buy</h2>
+					<ItemsBuyList />
+				</div>
+			</ShoppingListDiv>
 			<FooterComponent />
 		</>
 	);
@@ -22,14 +23,22 @@ function ShoppingList() {
 
 export default ShoppingList;
 
-const SoppingListDiv = styled.div`
+const ShoppingListDiv = styled.div`
 	display: flex;
-	width: 100%;
-	height: 100vh;
-	justify-content: space-between;
+	width: 100vw;
+	height: 100%;
+	margin-bottom: 8rem;
+	.itemsBuyList {
+		width: 25vw;
+		padding-top: 0.5rem;
+		display: flex;
+		flex-direction: column;
+		h2 {
+			text-align: center;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			font-size: 1.6rem;
+			color: #6a4c93;
+		}
+	}
 `;
-
-const Div = styled.div`
-	display: flex;
-	flex-direction: column;
-`

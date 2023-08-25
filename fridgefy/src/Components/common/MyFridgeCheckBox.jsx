@@ -1,19 +1,15 @@
-function MyFridgeCheckBox({element, setChecked, checked, handleChange}) {
+import styled from "styled-components";
 
-    const handleCheck = (e) =>{
-        handleChange(e.target.value)
-    }
+function MyFridgeCheckBox({ element, setChecked, checked, handleChange }) {
+	const handleCheck = (e) => {
+		handleChange(e.target.value);
+	};
 
-    
-
-    return (
-           <input 
-            type='checkbox'
-            value={element}
-            onChange={handleCheck}
-            checked={checked}
-            />
-    );
+	return <Input type="checkbox" value={element} onChange={handleCheck} checked={checked} />;
 }
 
 export default MyFridgeCheckBox;
+
+const Input = styled.input`
+	accent-color: #1982c4;
+`;

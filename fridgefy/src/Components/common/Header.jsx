@@ -3,94 +3,160 @@ import { User } from "../../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-
-
-
 function Header(props) {
-  const { googleSignIn, googleLogOut, user } = useContext(User);
-  const navigate = useNavigate()
+	const { googleSignIn, googleLogOut, user } = useContext(User);
+	const navigate = useNavigate();
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const handleGoogleSignIn = async () => {
+		try {
+			await googleSignIn();
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-  const handleGoogleLogOut = async () => {
-    try {
-      await googleLogOut();
-    } catch (e) {
-      console.log(e);
-    }
-  };
+	const handleGoogleLogOut = async () => {
+		try {
+			await googleLogOut();
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
-    const handleclick = (local) => {
-      
-    navigate(`/${local}`)
-  }
+	const handleclick = (local) => {
+		navigate(`/${local}`);
+	};
 
-  if (!user) {
-    return (
-        <StyledDiv>
-            <h1>Fridgefy</h1>
-            <StyledButton onClick={handleGoogleSignIn}>LOGIN</StyledButton>        
-        </StyledDiv>
-    
-    );
-  }
+	if (!user) {
+		return (
+			<StyledDiv>
+				<h1>Fridgefy</h1>
+				<button className="logIn" onClick={handleGoogleSignIn}>
+					LOGIN
+				</button>
+			</StyledDiv>
+		);
+	}
 
-  return (
-      <StyledDiv>
-        <h1>FridgeFy</h1>
-      <StyledLinksContainer>
-        
-        <button onClick={()=>{
-          navigate('/home')
-        }}>Home
-        </button>
+	return (
+		<StyledDiv>
+			<h1>FridgeFy</h1>
+			<div className="linkedContainer">
+				<button
+					onClick={() => {
+						navigate("/home");
+					}}
+				>
+					Home
+				</button>
 
-        <button onClick={()=>{
-          navigate('/recipes')
-        }}>
-          Recipes
-        </button>
-        
-        <button onClick={()=>{
-          navigate('/shoppinglist')
-        }}>
-          Shopping List
-        </button>
-      </StyledLinksContainer>
-      <div>
+				<button
+					onClick={() => {
+						navigate("/recipes");
+					}}
+				>
+					Recipes
+				</button>
 
-      <div>Hi, {user.displayName}</div>
-      <button onClick={handleGoogleLogOut}>LOGOUT</button>
-      </div>
-    
-      </StyledDiv>
-  );
+				<button
+					onClick={() => {
+						navigate("/shoppinglist");
+					}}
+				>
+					Shopping List
+				</button>
+			</div>
+			<div className="logInContainer">
+				<p>Hi, {user.displayName}</p>
+				<button onClick={handleGoogleLogOut}>LOGOUT</button>
+			</div>
+		</StyledDiv>
+	);
 }
 
 export default Header;
 
 const StyledDiv = styled.div`
-    background: #40b5c9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-`
-
-const StyledButton = styled.button`
-    height: 100%;
-    font-family: 'DM Mono', monospace;
-    cursor: pointer; 
-`
-
-const StyledLinksContainer = styled.div`
-    display: flex;
-    justify-content: space-between
-`
+	display: flex;
+	height: 10vh;
+	justify-content: space-between;
+	align-items: center;
+	background: #1982c4;
+	padding-left: 5rem;
+	padding-right: 5rem;
+	h1 {
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 2.4rem;
+		color: #fff;
+	}
+	.linkedContainer {
+		display: flex;
+		justify-content: space-between;
+		button {
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			cursor: pointer;
+			margin-right: 1rem;
+			border-radius: 3rem;
+			border: none;
+			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+			background: #ffca3a;
+			&:hover {
+				opacity: 0.5;
+			}
+			&:active {
+				transform: translateY(0.2rem);
+				border-bottom: none;
+			}
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+	.logIn {
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		cursor: pointer;
+		margin-right: 1rem;
+		border-radius: 3rem;
+		border: none;
+		border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+		background: #ffca3a;
+		&:hover {
+			opacity: 0.5;
+		}
+		&:active {
+			transform: translateY(0.2rem);
+			border-bottom: none;
+		}
+	}
+	.logInContainer {
+		p {
+			padding-left: 0.5rem;
+			margin: 0;
+			margin-bottom: 0.5rem;
+			font-size: 1.6rem;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			color: #fff;
+		}
+		button {
+			width: 10rem;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			background: #ffca3a;
+			border-radius: 3rem;
+			cursor: pointer;
+			border: none;
+			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.3);
+			&:hover {
+				opacity: 0.5;
+			}
+			&:active {
+				transform: translateY(0.2rem);
+				border-bottom: none;
+			}
+		}
+	}
+`;

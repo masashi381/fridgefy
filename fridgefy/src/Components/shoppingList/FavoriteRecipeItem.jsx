@@ -8,10 +8,10 @@ function FavoriteRecipeItem({ recipe }) {
 	const [deleteActive, setDeleteActive] = useState(true);
 
 	return (
-		<div>
+		<>
 			{deleteActive && (
-				<div>
-					<FlexDiv>
+				<RecipeContainer>
+					<div className="inner">
 						<h3>{recipe.title}</h3>
 						<FavoriteBtnContainer
 							isActive={isActive}
@@ -19,24 +19,33 @@ function FavoriteRecipeItem({ recipe }) {
 							setDeleteActive={setDeleteActive}
 							recipe={recipe}
 						/>
-					</FlexDiv>
+					</div>
 					{isActive && <FavoriteRecipeInfo recipe={recipe} />}
-				</div>
+				</RecipeContainer>
 			)}
-		</div>
+		</>
 	);
 }
 
 export default FavoriteRecipeItem;
 
-const FlexDiv = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border: 1px solid black;
-	background-color: rgb(212, 210, 210);
-	margin-bottom: 10px;
-	h3 {
-		padding-left: 10px;
+const RecipeContainer = styled.div`
+	width: 100%;
+	.inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border: 1px solid black;
+		border-radius: 0.5rem;
+		background-color: #1982c4;
+		margin-bottom: 1rem;
+		h3 {
+			padding-left: 1rem;
+			margin: 0.5rem 0;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			font-size: 1.6rem;
+			color: #fff;
+		}
 	}
 `;

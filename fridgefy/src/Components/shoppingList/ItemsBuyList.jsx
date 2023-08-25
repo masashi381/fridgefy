@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useContext } from "react";
 
 import ItemsBuy from "./ItemsBuy";
@@ -9,7 +8,6 @@ export default function ItemsBuyList() {
 	const { state } = useContext(FavoritesRecipes);
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
-
 
 	state.forEach((recipe) => {
 		recipe.extendedIngredients.forEach((ingredient) => {
@@ -25,22 +23,8 @@ export default function ItemsBuyList() {
 	});
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
-	
-	return Object.values(uniqueIngredient).map((value)=>{
-		return(
-			<ItemsBuy ingredient={value}/>
-		)
-	})
 
+	return Object.values(uniqueIngredient).map((value) => {
+		return <ItemsBuy ingredient={value} />;
+	});
 }
-
-const Div = styled.div`
-	width: 30vw;
-	h3 {
-		text-align: center;
-	}
-`;
-
-const Ul = styled.ul`
-	padding-left: 0;
-`;
