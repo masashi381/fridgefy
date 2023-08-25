@@ -174,6 +174,7 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 	const submitRequest = () => {
 		setInnerState([]);
 		let queryIngredients = checkedFrigeItems();
+		console.log("query", queryIngredients);
 		if (
 			filters[0].cuisine.length === 0 &&
 			filters[1].diet.length === 0 &&

@@ -30,7 +30,6 @@ export default function RecipesList({ list }) {
 
 	const addFavoriteRecipes = (e) => {
 		const favorite = filterRecipesList(e.target.id);
-		console.log("favorite", favorite);
 		dispatch({ type: "add", payload: favorite });
 	};
 

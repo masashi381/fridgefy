@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
-import dummyData from "../../backend/data/recipes.json";
 import styled from "styled-components";
-
+import dummyIngredients from "../../../assets/data/ingredients.json";
 function MyFridgeInput() {
 	const { fridge, addIngredientToFridge } = useContext(MyFridgeContext);
 
 	const [searchQuery, setSearchQuery] = useState("");
-	const [suggestedIngredients, setSuggestedIngredients] = useState([]);
+	const [suggestedIngredients, setSuggestedIngredients] = useState([""]);
+
+	function clearInput() {
+		setSearchQuery(" ");
+	}
 
 	const handleAddToFridge = () => {
 		const ingredientValue = document.querySelector("input").value;
@@ -16,26 +19,27 @@ function MyFridgeInput() {
 				addIngredientToFridge(ingredientValue, false);
 			} else if (fridge.includes(ingredientValue)) {
 				alert("Ingredient already in the fridge");
+				clearInput();
 			}
 		}
 		if (!ingredients.includes(ingredientValue)) {
 			alert("Not an Ingredient");
+			clearInput();
 		}
+		clearInput();
 	};
 
 	let ingredients = [];
 	const uniqueIngredients = new Set();
-	dummyData.recipes.forEach((recipe) => {
-		recipe.extendedIngredients.forEach((ingredient) => {
-			const ingredientName = ingredient.name;
-			if (
-				!uniqueIngredients.has(ingredientName) &&
-				ingredientName.toLowerCase().includes(searchQuery.toLowerCase())
-			) {
-				uniqueIngredients.add(ingredientName);
-				ingredients.push(ingredientName);
-			}
-		});
+	dummyIngredients.forEach((element) => {
+		const ingredientName = element.ingredient;
+		if (
+			!uniqueIngredients.has(ingredientName) &&
+			ingredientName.toLowerCase().includes(searchQuery.toLowerCase())
+		) {
+			uniqueIngredients.add(ingredientName);
+			ingredients.push(ingredientName);
+		}
 	});
 
 	const handleInputChange = (e) => {
@@ -61,13 +65,18 @@ function MyFridgeInput() {
 				Add to Fridge
 			</button>
 			<datalist id="ingredient-list">
-				{suggestedIngredients.map((ingredient, index) => (
-					<option key={index} value={ingredient} />
-				))}
+				{suggestedIngredients
+					.filter((item, index) => index <= 4)
+					.map((ingredient, index) => (
+						<Options key={index} value={ingredient} />
+					))}
 			</datalist>
 		</StyledDiv>
 	);
 }
+const Options = styled.option`
+	background-color: black;
+`;
 export default MyFridgeInput;
 
 const StyledDiv = styled.div`

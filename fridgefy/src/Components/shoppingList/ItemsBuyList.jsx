@@ -10,7 +10,6 @@ export default function ItemsBuyList() {
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
 
-	console.log("fridge", fridge);
 
 	state.forEach((recipe) => {
 		recipe.extendedIngredients.forEach((ingredient) => {
@@ -19,20 +18,20 @@ export default function ItemsBuyList() {
 	});
 
 	const checkExistingIngredients = newItems.filter((element) => {
-		if (!fridge.includes(element)) {
+		const fridgeArray = Object.keys(fridge).map((key) => fridge[key].name);
+		if (!fridgeArray.includes(element)) {
 			return newItems;
 		}
 	});
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
-	return (
-		<Div>
-			<h3>Items to buy</h3>
-			<Ul>
-				<ItemsBuy contents={uniqueIngredient} />
-			</Ul>
-		</Div>
-	);
+	
+	return Object.values(uniqueIngredient).map((value)=>{
+		return(
+			<ItemsBuy ingredient={value}/>
+		)
+	})
+
 }
 
 const Div = styled.div`
