@@ -34,6 +34,8 @@ const FooterDiv = styled.div`
 	background-color: #1982c4;
 	width: 100%;
 	height: 10vh;
+	position: fixed;
+	bottom: 0;
 	div {
 		height: 2rem;
 		display: flex;

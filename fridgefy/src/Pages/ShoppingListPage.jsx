@@ -26,8 +26,8 @@ export default ShoppingList;
 const SoppingListDiv = styled.div`
 	display: flex;
 	width: 100vw;
-	height: 100vh;
-	/* justify-content: space-between; */
+	height: 100%;
+	margin-bottom: 8rem;
 	.itemsBuyList {
 		width: 25vw;
 		display: flex;
@@ -37,6 +37,7 @@ const SoppingListDiv = styled.div`
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
 			font-size: 1.6rem;
+			color: #6a4c93;
 		}
 	}
 `;

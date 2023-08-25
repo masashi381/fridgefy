@@ -19,7 +19,9 @@ export default FavoriteRecipeList;
 
 const FavoriteRecipeDiv = styled.div`
 	width: 50vw;
-	/* margin: 0; */
-	border: 2px solid #ccc;
+	height: 100%;
 	padding: 10px;
+	margin: 0;
+	border: 2px solid #ccc;
+	border-radius: 1rem;
 `;

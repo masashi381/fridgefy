@@ -6,19 +6,18 @@ function BtnAccordion({ isActive, setActive }) {
 	}
 	return (
 		<div onClick={accordionHandler}>
-			<span>
-				{isActive ? (
-					<StyledI className="fa-solid fa-chevron-up"></StyledI>
-				) : (
-					<StyledI className="fa-solid fa-chevron-down"></StyledI>
-				)}
-			</span>
+			<Span>
+				{isActive ? <i className="fa-solid fa-chevron-up "></i> : <i className="fa-solid fa-chevron-down "></i>}
+			</Span>
 		</div>
 	);
 }
 
 export default BtnAccordion;
 
-const StyledI = styled.i`
-	padding-right: 10px;
+const Span = styled.span`
+	padding-right: 1rem;
+	&:hover {
+		cursor: pointer;
+	}
 `;

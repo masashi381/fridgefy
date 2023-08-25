@@ -48,6 +48,7 @@ const ListElement = styled.li`
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
 			font-size: 1.4rem;
+			color: #1982c4;
 		}
 	}
 	button {

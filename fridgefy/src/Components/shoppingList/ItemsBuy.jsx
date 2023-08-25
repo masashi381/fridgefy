@@ -20,26 +20,6 @@ export default function ItemsBuy({ ingredient }) {
 	);
 }
 
-// const Li = styled.li`
-// 	list-style: none;
-// 	border-bottom: 1px solid black;
-// 	padding: 5px 0;
-// `;
-
-// const Div = styled.div`
-// 	width: 80%;
-// 	display: flex;
-// 	flex-direction: row;
-// 	align-items: center;
-// 	justify-content: space-between;
-// 	margin: 0 auto;
-// 	li {
-// 		list-style: none;
-// 		border-bottom: 1px solid black;
-// 		padding: 5px 0;
-// 	}
-// `;
-
 const Li = styled.li`
 	width: 80%;
 	display: flex;
@@ -56,6 +36,7 @@ const Li = styled.li`
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 1.4rem;
+		color: #1982c4;
 	}
 	.addBtn {
 		margin-bottom: 0.5rem;
