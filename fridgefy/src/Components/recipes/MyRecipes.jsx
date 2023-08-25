@@ -25,19 +25,17 @@ export default function MyRecipesSec() {
 }
 
 const MyRecipeSection = Styled.section`
-    /* background-color: #1982c4; */
     width: 25vw;
     padding: 0;
-    border-left: 1px solid rgba(100, 100, 100, 0.3);
     h2 {
         text-align: center;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 1.6rem;
+        color: #6a4c93;
     }
     ul{
         padding: 0;
-
         li{
             display: flex;
             justify-content: space-between;
@@ -53,30 +51,14 @@ const MyRecipeSection = Styled.section`
                 font-family: "DM Mono", monospace;
 		        font-weight: 400;
 		        font-size: 1.4rem;
+                color: #1982c4;
             };
             i {
                 color: rgba(255, 89, 94, 1);
+                &:hover {
+                    cursor: pointer;
+                }
             };
         };
     }
 `;
-
-// const MyRecipeUl = Styled.ul`
-//     padding: 0;
-
-// `;
-
-// const MyRecipeLi = Styled.li`
-//     list-style: none;
-//     display: flex;
-//     align-items: center;
-//     border-bottom: 1px solid black;
-//     width: fit-content;
-//     padding: 5px 0;
-
-//     div {
-//         width: 90%;
-//         margin-right: 20px;
-//     };
-
-// `;

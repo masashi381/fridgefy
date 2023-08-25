@@ -31,7 +31,9 @@ function Header(props) {
 		return (
 			<StyledDiv>
 				<h1>Fridgefy</h1>
-				<button onClick={handleGoogleSignIn}>LOGIN</button>
+				<button className="logIn" onClick={handleGoogleSignIn}>
+					LOGIN
+				</button>
 			</StyledDiv>
 		);
 	}
@@ -39,7 +41,7 @@ function Header(props) {
 	return (
 		<StyledDiv>
 			<h1>FridgeFy</h1>
-			<StyledLinksContainer>
+			<div className="linkedContainer">
 				<button
 					onClick={() => {
 						navigate("/home");
@@ -63,11 +65,11 @@ function Header(props) {
 				>
 					Shopping List
 				</button>
-			</StyledLinksContainer>
-			<StyledLoginContainer>
+			</div>
+			<div className="logInContainer">
 				<p>Hi, {user.displayName}</p>
 				<button onClick={handleGoogleLogOut}>LOGOUT</button>
-			</StyledLoginContainer>
+			</div>
 		</StyledDiv>
 	);
 }
@@ -86,19 +88,33 @@ const StyledDiv = styled.div`
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 2.4rem;
+		color: #fff;
 	}
-	button {
-		font-family: "DM Mono", monospace;
-		font-weight: 400;
-		background: #ffca3a;
-		cursor: pointer;
+	.linkedContainer {
+		display: flex;
+		justify-content: space-between;
+		button {
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			cursor: pointer;
+			margin-right: 1rem;
+			border-radius: 3rem;
+			border: none;
+			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+			background: #ffca3a;
+			&:hover {
+				opacity: 0.5;
+			}
+			&:active {
+				transform: translateY(0.2rem);
+				border-bottom: none;
+			}
+			&:last-child {
+				margin: 0;
+			}
+		}
 	}
-`;
-
-const StyledLinksContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-	button {
+	.logIn {
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		cursor: pointer;
@@ -106,43 +122,41 @@ const StyledLinksContainer = styled.div`
 		border-radius: 3rem;
 		border: none;
 		border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
-		&:hover {
-			opacity: 0.5;
-		}
-		&:active {
-			transform: translateY(0.2rem);
-			border-bottom: none;
-		}
-		&:last-child {
-			margin: 0;
-		}
-	}
-`;
-
-const StyledLoginContainer = styled.div`
-	p {
-		font-size: 1.6rem;
-		font-family: "DM Mono", monospace;
-		font-weight: 400;
-		padding-left: 0.5rem;
-		margin: 0;
-		margin-bottom: 0.5rem;
-	}
-	button {
-		width: 10rem;
-		font-family: "DM Mono", monospace;
-		font-weight: 400;
 		background: #ffca3a;
-		border-radius: 3rem;
-		cursor: pointer;
-		border: none;
-		border-bottom: 0.2rem solid rgba(51, 51, 51, 0.3);
 		&:hover {
 			opacity: 0.5;
 		}
 		&:active {
 			transform: translateY(0.2rem);
 			border-bottom: none;
+		}
+	}
+	.logInContainer {
+		p {
+			padding-left: 0.5rem;
+			margin: 0;
+			margin-bottom: 0.5rem;
+			font-size: 1.6rem;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			color: #fff;
+		}
+		button {
+			width: 10rem;
+			font-family: "DM Mono", monospace;
+			font-weight: 400;
+			background: #ffca3a;
+			border-radius: 3rem;
+			cursor: pointer;
+			border: none;
+			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.3);
+			&:hover {
+				opacity: 0.5;
+			}
+			&:active {
+				transform: translateY(0.2rem);
+				border-bottom: none;
+			}
 		}
 	}
 `;

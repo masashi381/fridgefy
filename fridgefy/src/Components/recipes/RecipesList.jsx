@@ -115,7 +115,7 @@ const Ul = Styled.ul`
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
 			font-size: 1.8rem;
-			/* color: #1982c4; */
+			color: #fff;
 		}
 		.detail{
 			display:none;
@@ -138,6 +138,7 @@ const Ul = Styled.ul`
 					width: 1rem;
 					height: 1rem;
 					color: #ff595e;
+					cursor: pointer;
 				}
 			}
 			.titleInMore{
@@ -158,8 +159,12 @@ const Ul = Styled.ul`
 					font-family: "DM Mono", monospace;
 					font-weight: 400;
 					font-size: 1.6rem;
+					color: #6a4c93;
 				}
 				p{
+					width: 90%;
+					display: flex;
+					flex-wrap: wrap;
 					margin: 1rem auto;
 					font-family: "DM Mono", monospace;
 					font-weight: 400;
@@ -205,5 +210,6 @@ const StyledReactPaginate = Styled(ReactPaginate)`
 	}
 	li.selected {
 		background-color: #1982c4;
+		color: #fff;
 	}
 `;

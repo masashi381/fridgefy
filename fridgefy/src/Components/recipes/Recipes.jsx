@@ -79,5 +79,4 @@ export default Recipes;
 const StyledDiv = styled.div`
 	width: 50vw;
 	padding: 1rem 1rem 0;
-	/* background-color: gray; */
 `;

@@ -13,6 +13,8 @@ function MyFridgeComponent() {
 	);
 }
 
+export default MyFridgeComponent;
+
 const MyFridgeDiv = styled.div`
 	width: 25vw;
 	padding-top: 0.5rem;
@@ -24,5 +26,3 @@ const MyFridgeDiv = styled.div`
 		color: #6a4c93;
 	}
 `;
-
-export default MyFridgeComponent;

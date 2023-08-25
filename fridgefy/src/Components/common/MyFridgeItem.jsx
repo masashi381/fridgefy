@@ -56,7 +56,10 @@ const ListElement = styled.li`
 		border: none;
 		background: none;
 		i {
-			color: rgba(255, 89, 94, 1);
+			color: #ff595e;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 `;

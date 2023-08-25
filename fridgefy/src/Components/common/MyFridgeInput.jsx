@@ -74,9 +74,7 @@ function MyFridgeInput() {
 		</StyledDiv>
 	);
 }
-const Options = styled.option`
-	background-color: black;
-`;
+
 export default MyFridgeInput;
 
 const StyledDiv = styled.div`
@@ -85,12 +83,22 @@ const StyledDiv = styled.div`
 	margin-bottom: 1rem;
 	input {
 		border-radius: 0.5rem;
-		/* border: none; */
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 1.4rem;
 	}
 	button {
 		background-color: #ffca3a;
 		box-shadow: 2px 2px black;
 		margin-left: 0.5rem;
 		border-radius: 2.5rem;
+		cursor: pointer;
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 1.2rem;
 	}
+`;
+
+const Options = styled.option`
+	background-color: black;
 `;

@@ -20,7 +20,7 @@ export default FavoriteRecipeList;
 const FavoriteRecipeDiv = styled.div`
 	width: 50vw;
 	height: 100%;
-	padding: 10px;
+	padding: 1rem;
 	margin: 0;
 	border: 2px solid #ccc;
 	border-radius: 1rem;

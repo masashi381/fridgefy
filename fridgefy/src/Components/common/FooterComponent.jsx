@@ -46,7 +46,7 @@ const FooterDiv = styled.div`
 
 	p,
 	h4 {
-		color: black;
+		color: #fff;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 1.4rem;
@@ -57,7 +57,8 @@ const FooterDiv = styled.div`
 		margin-left: 1rem;
 		a {
 			text-decoration: none;
-			color: black;
+			color: #fff;
+			cursor: pointer;
 		}
 	}
 	.copy {

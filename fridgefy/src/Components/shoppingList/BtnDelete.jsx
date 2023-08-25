@@ -24,9 +24,9 @@ export default BtnDelete;
 const DeleteSpan = styled.span`
 	margin-right: 10px;
 	i {
+		color: #ff595e;
 		&:hover {
 			cursor: pointer;
 		}
-		color: #ff595e;
 	}
 `;
