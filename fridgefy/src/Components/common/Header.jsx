@@ -3,11 +3,14 @@ import { User } from "../../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-
-
+import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
+import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
 function Header(props) {
   const { googleSignIn, googleLogOut, user } = useContext(User);
+  const { dispatch } = useContext(FavoritesRecipes);
+  const { setFridge } = useContext(MyFridgeContext);
+
   const navigate = useNavigate()
 
   const handleGoogleSignIn = async () => {
@@ -19,6 +22,8 @@ function Header(props) {
   };
 
   const handleGoogleLogOut = async () => {
+    dispatch({ type: "deleteAll" });
+    setFridge([]);
     try {
       await googleLogOut();
     } catch (e) {
