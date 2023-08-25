@@ -3,90 +3,89 @@ import { User } from "./UserContext";
 
 export const FavoritesRecipes = createContext();
 
-
 export function FavoritesRecipesContext({ children }) {
 
 	const { user } = useContext(User);
 	const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
 	const reducer = (state, action) => {
-		// console.log("action", action.payload);
+		let fridgeArr;
+		let recipesArr;
+
+		if(localStorage.getItem(structuredClone(user.email))){
+			fridgeArr=JSON.parse(localStorage.getItem(structuredClone(user.email)))["fridge"]
+			recipesArr=JSON.parse(localStorage.getItem(structuredClone(user.email)))["recipes"]
+		}
+
 		switch (action.type) {
+
 			case "add":
-				let newObj=structuredClone(action.payload)
-				newObj["user"]=user.email
-				localStorage.setItem(action.payload.id, JSON.stringify(newObj));
+				
+				const obj = !localStorage.getItem(structuredClone(user.email))?
+				{
+					fridge: [],
+					recipes: [action.payload]
+				}
+				:
+				{
+					fridge: fridgeArr,
+					recipes: [...recipesArr, action.payload]
+					
+				}
+				
+				localStorage.setItem(structuredClone(user.email), JSON.stringify(obj))
+
 				return [...state, action.payload];
 				
 			case "delete":
-				localStorage.removeItem(action.id)
+
+				recipesArr.forEach(val=>{
+				
+					if(val.id==action.id){
+						
+						recipesArr.splice(recipesArr.indexOf(val) ,1)
+
+						const obj={
+						fridge: fridgeArr,
+						recipes: recipesArr
+						}
+
+						localStorage.setItem(structuredClone(user.email), JSON.stringify(obj))
+					}
+				})
+
 				return state.filter((t) => t.id !== action.id);
 
 			case "deleteAll":
 				return [];
+
+			case "init":
+				return [...state, action.payload];
 		}
 	};
 
-	// let initState=[];
-	// Object.keys(localStorage).forEach(val=>{
-	// 	if(
-	// 		!JSON.parse(localStorage.getItem(val)).name
-	// 		// &&
-	// 		// JSON.parse(localStorage.getItem(val)).user==user.email
-	// 		){
-	// 		initState.push(JSON.parse(localStorage.getItem(val)))
-	// 	}
-	// });
 
 	const getItems = () => {
 		
 		if(user){
 
-			Object.keys(localStorage).forEach(val=>{
-		
-				// console.log("val",JSON.parse(localStorage.getItem(val)).user)
-				// console.log("boolean",JSON.parse(localStorage.getItem(val)).name
-				// &&JSON.parse(localStorage.getItem(val)).user==user.email)
-				// console.log("email", user.email);
-				if(
-					!JSON.parse(localStorage.getItem(val)).name
-					&&
-					JSON.parse(localStorage.getItem(val)).user==user.email
-				){
-					// console.log("here");
-					// initState.push(JSON.parse(localStorage.getItem(val)));
-					dispatch({ type: "add", payload: JSON.parse(localStorage.getItem(val)) });
-				};
-		
-			});
+			if(JSON.parse(localStorage.getItem(structuredClone(user.email)))){
+				
+				JSON.parse(localStorage.getItem(structuredClone(user.email)))["recipes"].forEach(val=>{
+					
+					dispatch({ type: "init", payload: val });
+
+				})
+			}
 		}
-		//console.log("RSLT", initState);
-		
 	}
 
-	
 	useEffect(()=>{
-		console.log("-----------")
 		getItems()
-		Object.keys(localStorage).forEach(val=>{
-			console.log("LS",JSON.parse(localStorage.getItem(val)).title)
-
-		})
-		if(user){
-
-			console.log("EMAIL",user.email)
-		}
-		
 	}, [user])
 	
 	const [state, dispatch] = useReducer(reducer, []);
-	console.log("STATE:",state)
-	// console.log("state: " + state);
-
-	// Object.keys(localStorage).forEach(val=>{
-	// 	console.log(JSON.parse(localStorage.getItem(val)))
-	// })
-
+	
 	return (
 		<FavoritesRecipes.Provider value={{ favoriteRecipes, setFavoriteRecipes, state, dispatch }}>
 			{children}

@@ -22,7 +22,7 @@ function Header(props) {
   };
 
   const handleGoogleLogOut = async () => {
-    dispatch({ type: "deleteAll" });
+    dispatch({ type: "deleteAll", payload: null });
     setFridge([]);
     try {
       await googleLogOut();

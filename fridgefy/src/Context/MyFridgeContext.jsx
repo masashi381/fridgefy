@@ -7,39 +7,23 @@ export function MyFridge({ children }) {
 
 	const { user } = useContext(User);
 
-	// console.log("email1:",JSON.parse(localStorage.getItem("vanilla")).user)
-	// console.log("email2:",user.email)
-	
 	const getItems = () => {
 		let initState=[];
 		if(user){
 
-			Object.keys(localStorage).forEach(val=>{
-		
-				// console.log("val",JSON.parse(localStorage.getItem(val)).user)
-				// console.log("boolean",JSON.parse(localStorage.getItem(val)).name
-				// &&JSON.parse(localStorage.getItem(val)).user==user.email)
-				// console.log("email", user.email);
-				if(
-					JSON.parse(localStorage.getItem(val)).name
-					&&
-					JSON.parse(localStorage.getItem(val)).user==user.email
-				){
-					// console.log("here");
-					initState.push(JSON.parse(localStorage.getItem(val)));
-				};
-		
-			});
+			if(JSON.parse(localStorage.getItem(user.email))){
+				
+				JSON.parse(localStorage.getItem(user.email))["fridge"].forEach(val=>{
+					initState.push({name: val.name, checked: val.checked});
+				})
+			}
 		}
-		// console.log("result", initState);
 		return initState;
 	}
 	
-
 	useEffect(() => {
 		setFridge(getItems());
 	}, [user])
-
 
 	const [fridge, setFridge] = useState([]);
 
@@ -68,17 +52,25 @@ export function MyFridge({ children }) {
 		setFridge(newState)
 	}
 
-
 	const addIngredientToFridge = (ingredient, checked) => {
 		setFridge((prev) => {
+			
+			const fridgeArr=JSON.parse(localStorage.getItem(user.email))["fridge"]
+			const recipesArr=JSON.parse(localStorage.getItem(user.email))["recipes"]
 
-
-			localStorage.setItem(ingredient, JSON.stringify({
-				user: structuredClone(user.email),
-				name: ingredient,
-				checked: checked
-			}))
-
+			const obj = !localStorage.getItem(user.email)?
+				{
+					fridge: [{name: ingredient, checked: checked}],
+					recipes: []
+				}
+				:
+				{
+					fridge: [...fridgeArr, {name: ingredient, checked: checked}],
+					recipes: recipesArr
+				}
+			
+			localStorage.setItem(user.email, JSON.stringify(obj))
+			
 			return [...prev, {
 				name: ingredient,
 				checked: checked
@@ -86,9 +78,6 @@ export function MyFridge({ children }) {
 
 		});
 
-		// Object.keys(localStorage).forEach(val=>{
-		// 	console.log(JSON.parse(localStorage.getItem(val)))
-		// })
 	};
 
 

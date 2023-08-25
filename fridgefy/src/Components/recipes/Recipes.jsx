@@ -28,21 +28,21 @@ function Recipes() {
 
     const getRandomRecipes = () => {
         setItems([])
-        axios.get(baseURL).then((response)=>{
-            response.data.recipes.map((recipe)=>{
-                setItems((prev)=>{
-                    return [...prev, {id: recipe.id, name: recipe.title}]
-                }) 
-            })
-            setRecipesList(response.data.recipes)
-        })
-        
-        // recipes.recipes.map((recipe)=>{
-        //     setItems((prev)=>{
-        //         return [...prev, {id: recipe.id, name: recipe.title}]
-        //     }) 
+        // axios.get(baseURL).then((response)=>{
+        //     response.data.recipes.map((recipe)=>{
+        //         setItems((prev)=>{
+        //             return [...prev, {id: recipe.id, name: recipe.title}]
+        //         }) 
+        //     })
+        //     setRecipesList(response.data.recipes)
         // })
-        // setRecipesList(recipes.recipes)
+        
+        recipes.recipes.map((recipe)=>{
+            setItems((prev)=>{
+                return [...prev, {id: recipe.id, name: recipe.title}]
+            }) 
+        })
+        setRecipesList(recipes.recipes)
     }
 
     const getSearchedRecipe = (id) =>{    
