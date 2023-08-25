@@ -10,7 +10,6 @@ export default function ItemsBuyList() {
 	const { fridge } = useContext(MyFridgeContext);
 	const newItems = [];
 
-
 	state.forEach((recipe) => {
 		recipe.extendedIngredients.forEach((ingredient) => {
 			newItems.push(ingredient.name);
@@ -25,22 +24,19 @@ export default function ItemsBuyList() {
 	});
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
-	
-	return Object.values(uniqueIngredient).map((value)=>{
-		return(
-			<ItemsBuy ingredient={value}/>
-		)
-	})
 
+	return Object.values(uniqueIngredient).map((value) => {
+		return <ItemsBuy ingredient={value} />;
+	});
 }
 
-const Div = styled.div`
-	width: 30vw;
-	h3 {
-		text-align: center;
-	}
-`;
+// const Div = styled.div`
+// 	width: 30vw;
+// 	h3 {
+// 		text-align: center;
+// 	}
+// `;
 
-const Ul = styled.ul`
-	padding-left: 0;
-`;
+// const Ul = styled.ul`
+// 	padding-left: 0;
+// `;
