@@ -55,9 +55,14 @@ export function MyFridge({ children }) {
 	const addIngredientToFridge = (ingredient, checked) => {
 		setFridge((prev) => {
 			
-			const fridgeArr=JSON.parse(localStorage.getItem(user.email))["fridge"]
-			const recipesArr=JSON.parse(localStorage.getItem(user.email))["recipes"]
+			let fridgeArr;
+			let recipesArr;
 
+			if(localStorage.getItem(structuredClone(user.email))){
+				fridgeArr=JSON.parse(localStorage.getItem(structuredClone(user.email)))["fridge"]
+				recipesArr=JSON.parse(localStorage.getItem(structuredClone(user.email)))["recipes"]
+			}
+			
 			const obj = !localStorage.getItem(user.email)?
 				{
 					fridge: [{name: ingredient, checked: checked}],
