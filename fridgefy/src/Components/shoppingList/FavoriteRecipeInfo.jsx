@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+import parse from 'html-react-parser';
+
+
+
 function FavoriteRecipeInfo({ recipe }) {
+
+	console.log("recipeIns", recipe.instructions)
+
+	
 	return (
 		<FlexDiv>
-			<ContentP>{recipe.instructions}</ContentP>
+			<ContentP>{parse(recipe.instructions)}</ContentP>
 			<Img src={recipe.image} alt="" />
 		</FlexDiv>
 	);

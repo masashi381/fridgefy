@@ -25,14 +25,13 @@ export default function ItemsBuyList() {
 	});
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
-	return (
-		<Div>
-			<h3>Items to buy</h3>
-			<Ul>
-				<ItemsBuy contents={uniqueIngredient} />
-			</Ul>
-		</Div>
-	);
+	
+	return Object.values(uniqueIngredient).map((value)=>{
+		return(
+			<ItemsBuy ingredient={value}/>
+		)
+	})
+
 }
 
 const Div = styled.div`
