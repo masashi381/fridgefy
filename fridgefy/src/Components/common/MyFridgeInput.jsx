@@ -24,15 +24,11 @@ function MyFridgeInput() {
     })
 
     if (ingredientValue) {
-<<<<<<< HEAD
+
       if(!fridgeIncludes && ingredients.includes(ingredientValue)) {
         addIngredientToFridge(ingredientValue, false);
       } else if (fridgeIncludes) {
-=======
-      if(!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
-        addIngredientToFridge(ingredientValue, false);
-      } else if (fridge.includes(ingredientValue)) {
->>>>>>> ddffd2f84138f9634f909bc796d905febbc6b580
+
         alert("Ingredient already in the fridge");
         clearInput();
       }
