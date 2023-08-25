@@ -72,12 +72,12 @@ export function MyFridge({ children }) {
 	const addIngredientToFridge = (ingredient, checked) => {
 		setFridge((prev) => {
 
+
 			localStorage.setItem(ingredient, JSON.stringify({
 				user: structuredClone(user.email),
 				name: ingredient,
 				checked: checked
 			}))
-
 
 			return [...prev, {
 				name: ingredient,
@@ -91,7 +91,6 @@ export function MyFridge({ children }) {
 		// })
 	};
 
-	//console.log("context", fridge);
 
 	return <MyFridgeContext.Provider value={{ fridge, addIngredientToFridge, setFridge, handlecheck }}>
 		{children}

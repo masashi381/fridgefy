@@ -1,15 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { MyFridgeContext } from '../../Context/MyFridgeContext';
-import dummyData from "../../backend/data/recipes.json"
 import styled from 'styled-components';
-
+import dummyIngredients from '../../../assets/data/ingredients.json'
 function MyFridgeInput() {
   const { fridge, addIngredientToFridge } = useContext(MyFridgeContext);
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [suggestedIngredients, setSuggestedIngredients] = useState([]);
+  const [suggestedIngredients, setSuggestedIngredients] = useState([""]);
   
   
+  function clearInput(){
+    setSearchQuery(" ");
+  }
+
   const handleAddToFridge = () => {
     const ingredientValue = document.querySelector("input").value;
     
@@ -21,22 +24,29 @@ function MyFridgeInput() {
     })
 
     if (ingredientValue) {
+<<<<<<< HEAD
       if(!fridgeIncludes && ingredients.includes(ingredientValue)) {
         addIngredientToFridge(ingredientValue, false);
       } else if (fridgeIncludes) {
+=======
+      if(!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
+        addIngredientToFridge(ingredientValue, false);
+      } else if (fridge.includes(ingredientValue)) {
+>>>>>>> ddffd2f84138f9634f909bc796d905febbc6b580
         alert("Ingredient already in the fridge");
+        clearInput();
       }
     } if (!ingredients.includes(ingredientValue)){
       alert("Not an Ingredient")
-      
-    }
+      clearInput();
+    };
+    clearInput();
   };
   
   let ingredients = [];
   const uniqueIngredients = new Set();
-  dummyData.recipes.forEach((recipe) => {
-    recipe.extendedIngredients.forEach((ingredient) => {
-      const ingredientName = ingredient.name;
+    dummyIngredients.forEach((element) => {
+      const ingredientName = element.ingredient;
       if (
         !uniqueIngredients.has(ingredientName) &&
         ingredientName.toLowerCase().includes(searchQuery.toLowerCase())
@@ -45,7 +55,6 @@ function MyFridgeInput() {
           ingredients.push(ingredientName);
         }
       });
-    });
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
@@ -67,9 +76,9 @@ function MyFridgeInput() {
         list="ingredient-list"
       />
       <ButtonStyle id="AddFridgeButton" onClick={handleAddToFridge}>Add to Fridge</ButtonStyle>
-      <datalist id="ingredient-list">
-        {suggestedIngredients.map((ingredient, index) => (
-          <option key={index} value={ingredient} />
+      <datalist  id="ingredient-list">
+        {suggestedIngredients.filter((item, index) => index <= 4).map((ingredient, index) => (
+          <Options key={index} value={ingredient}/>
         ))}
       </datalist>
      </div>
@@ -83,5 +92,8 @@ const ButtonStyle = styled.button`
   color: white;
   margin-left: .5rem;
   border-radius: 25px;
+`
+const Options = styled.option`
+  background-color: black;
 `
 export default MyFridgeInput;

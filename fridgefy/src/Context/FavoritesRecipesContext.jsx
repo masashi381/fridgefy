@@ -3,6 +3,16 @@ import { User } from "./UserContext";
 
 export const FavoritesRecipes = createContext();
 
+
+const reducer = (state, action) => {
+	switch (action.type) {
+		case "add":
+			return [...state, action.payload];
+		case "delete":
+			return state.filter((t) => t.id !== action.id);
+	}
+};
+
 export function FavoritesRecipesContext({ children }) {
 
 	const { user } = useContext(User);
