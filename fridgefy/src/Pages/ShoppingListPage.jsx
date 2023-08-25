@@ -11,7 +11,9 @@ function ShoppingList() {
 			<SoppingListDiv>
 				<MyFridgeComponent />
 				<FavoriteRecipeList />
+				<Div>
 				<ItemsBuyList />
+				</Div>
 			</SoppingListDiv>
 			<FooterComponent />
 		</>
@@ -26,3 +28,8 @@ const SoppingListDiv = styled.div`
 	height: 100vh;
 	justify-content: space-between;
 `;
+
+const Div = styled.div`
+	display: flex;
+	flex-direction: column;
+`
