@@ -26,6 +26,7 @@ const DeleteSpan = styled.span`
 		color: #ff595e;
 		&:hover {
 			cursor: pointer;
+			color: red;
 		}
 	}
 `;

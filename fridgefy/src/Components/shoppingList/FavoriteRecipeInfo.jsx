@@ -23,7 +23,7 @@ const FlexDiv = styled.div`
 	border: 1px solid black;
 	border-radius: 0.5rem;
 	p {
-		width: 40rem;
+		width: 100%;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 1.2rem;

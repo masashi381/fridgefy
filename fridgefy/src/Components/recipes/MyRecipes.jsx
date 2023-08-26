@@ -57,6 +57,7 @@ const MyRecipeSection = Styled.section`
                 color: rgba(255, 89, 94, 1);
                 &:hover {
                     cursor: pointer;
+                    color: red;
                 }
             };
         };

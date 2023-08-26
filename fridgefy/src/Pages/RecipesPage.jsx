@@ -23,6 +23,7 @@ const RecipesPageDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
 	width: 100vw;
-	height: 80vh;
+	height: auto;
+	min-height: 80vh;
 	margin: 0 auto;
 `;

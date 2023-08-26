@@ -21,7 +21,6 @@ function Recipes() {
 		}
 	}, [searchItem]);
 
-
 	const getRandomRecipes = () => {
 		setItems([]);
 		axios.get(baseURL).then((response) => {
@@ -54,8 +53,9 @@ function Recipes() {
 
 	return (
 		<StyledDiv>
-			<RecipesAutoSearch list={items} setSearchedItem={setSearchedItem} />
+			<RecipesAutoSearch className="autoSearch" list={items} setSearchedItem={setSearchedItem} />
 			<RecipesFilterContainer
+				className="container"
 				list={recipesList}
 				setList={setRecipesList}
 				setRandomList={getRandomRecipes}
@@ -71,4 +71,13 @@ export default Recipes;
 const StyledDiv = styled.div`
 	width: 50vw;
 	padding: 1rem 1rem 0;
+	position: relative;
+	.autoSearch {
+		position: absolute;
+		z-index: 1;
+	}
+	.container {
+		position: absolute;
+		z-index: 2;
+	}
 `;

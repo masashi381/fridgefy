@@ -198,7 +198,6 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
 		let nOfRecipes = 2;
 
-
 		axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response) => {
 			response.data.results.map((result) => {
 				setInnerState((prev) => {
@@ -222,19 +221,16 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 export default RecipesFilterContainer;
 
 const Btn = styled.button`
-	background: #ffca3a;
+	margin: 0.5rem 0;
+	background-color: #ffca3a;
+	box-shadow: 2px 2px black;
+	margin-left: 0.5rem;
+	border-radius: 2.5rem;
+	cursor: pointer;
 	font-family: "DM Mono", monospace;
 	font-weight: 400;
-	cursor: pointer;
-	margin: 0.5rem 0;
-	border-radius: 3rem;
-	border: none;
-	border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+	font-size: 1.2rem;
 	&:hover {
 		opacity: 0.5;
-	}
-	&:active {
-		transform: translateY(0.2rem);
-		border-bottom: none;
 	}
 `;

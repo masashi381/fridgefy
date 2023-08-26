@@ -31,9 +31,6 @@ const Div = styled.div`
 	height: 50vh;
 	padding-top: 1rem;
 	background-color: rgba(255, 255, 255, 0.85);
-	position: absolute;
-	top: 10rem;
-	right: 10rem;
 	border-radius: 3rem;
 	p {
 		width: 80%;
@@ -48,20 +45,15 @@ const Div = styled.div`
 		width: 15rem;
 		height: 5rem;
 		margin: 1rem auto 0;
-		background: #ffca3a;
-		border-radius: 3rem;
-		font-size: 1.6rem;
+		background-color: #ffca3a;
+		box-shadow: 2px 2px black;
+		border-radius: 2.5rem;
+		cursor: pointer;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
-		cursor: pointer;
-		border: none;
-		border-bottom: 0.2rem solid rgba(51, 51, 51, 0.3);
+		font-size: 1.6rem;
 		&:hover {
-			opacity: 0.8;
-		}
-		&:active {
-			transform: translateY(0.2rem);
-			border-bottom: none;
+			opacity: 0.5;
 		}
 	}
 	h2 {

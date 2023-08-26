@@ -4,23 +4,22 @@ import ReactPaginate from "react-paginate";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 
 export default function RecipesList({ list }) {
-
 	const [currentPage, setCurrentPage] = useState(0);
 	const { dispatch, state } = useContext(FavoritesRecipes);
 
-	useEffect(()=>{
-		const addBtton=document.querySelectorAll(".addBtn")
-		addBtton.forEach(val1=>{
+	useEffect(() => {
+		const addBtton = document.querySelectorAll(".addBtn");
+		addBtton.forEach((val1) => {
 			let disabled = false;
-			state.forEach(val2=>{
-				if(val1.id == val2.id && disabled == false){
-					disabled=true;
+			state.forEach((val2) => {
+				if (val1.id == val2.id && disabled == false) {
+					disabled = true;
 				}
-			})
-			
-			val1.disabled = disabled? true : false;
-		})
-	})
+			});
+
+			val1.disabled = disabled ? true : false;
+		});
+	});
 
 	const itemsPerPage = 15;
 	const totalPages = Math.ceil(list.length / itemsPerPage);
@@ -153,7 +152,10 @@ const Ul = Styled.ul`
 					width: 1rem;
 					height: 1rem;
 					color: #ff595e;
-					cursor: pointer;
+					&:hover{
+						cursor: pointer;
+						opacity: .5;
+					}
 				}
 			}
 			.titleInMore{
@@ -193,20 +195,16 @@ const Ul = Styled.ul`
 			justify-content: space-evenly;
 			padding: 1rem;
 			button{
-				background-color:#ffca3a;
+				padding: 0.2rem .6rem;
+				background-color: #ffca3a;
+				box-shadow: 2px 2px black;
+				border-radius: 2.5rem;
+				cursor: pointer;
 				font-family: "DM Mono", monospace;
 				font-weight: 400;
-				cursor: pointer;
-				margin-right: 1rem;
-				border-radius: 3rem;
-				border: none;
-				border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
+				font-size: 1.2rem;
 				&:hover {
 					opacity: 0.5;
-				}
-				&:active {
-					transform: translateY(0.2rem);
-					border-bottom: none;
 				}
 			}
 		}
