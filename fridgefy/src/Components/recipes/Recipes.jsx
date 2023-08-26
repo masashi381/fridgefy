@@ -62,7 +62,13 @@ function Recipes() {
 
 	return (
 		<StyledDiv>
-			<RecipesAutoSearch list={items} setSearchedItem={setSearchedItem} />
+			<div style={{ position: "relative" }}>
+				<RecipesAutoSearch
+					style={{ position: "absolute", zIndex: 99 }}
+					list={items}
+					setSearchedItem={setSearchedItem}
+				/>
+			</div>
 			<RecipesFilterContainer
 				list={recipesList}
 				setList={setRecipesList}
