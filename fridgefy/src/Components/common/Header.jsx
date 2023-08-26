@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import { User } from "../../Context/UserContext";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
-function Header(props) {
+function Header() {
   const { googleSignIn, googleLogOut, user } = useContext(User);
   const { dispatch } = useContext(FavoritesRecipes);
   const { setFridge } = useContext(MyFridgeContext);
@@ -31,9 +30,6 @@ function Header(props) {
     }
   };
 
-	const handleclick = (local) => {
-		navigate(`/${local}`);
-	};
 
 	if (!user) {
 		return (

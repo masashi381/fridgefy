@@ -33,7 +33,7 @@ function MyFridgeList() {
 
 	return Object.values(fridge).map((element, index) => {
 		return (
-			<ListItems>
+			<ListItems key={index}>
 				<MyFridgeItem
 					ingredient={element.name}
 					key={index}

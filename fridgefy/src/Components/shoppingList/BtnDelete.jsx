@@ -6,7 +6,6 @@ function BtnDelete({ recipe, setDeleteActive }) {
 	const { dispatch } = useContext(FavoritesRecipes);
 
 	function deleteHandler(id) {
-		// localStorage.removeItem("data");
 		setDeleteActive(false);
 		dispatch({ type: "delete", id: id });
 	}
