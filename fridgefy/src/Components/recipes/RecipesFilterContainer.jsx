@@ -198,6 +198,7 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
 		let nOfRecipes = 2;
 
+
 		axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response) => {
 			response.data.results.map((result) => {
 				setInnerState((prev) => {

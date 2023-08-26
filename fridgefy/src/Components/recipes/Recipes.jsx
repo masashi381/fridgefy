@@ -23,6 +23,7 @@ function Recipes() {
 		}
 	}, [searchItem]);
 
+
 	const getRandomRecipes = () => {
 		setItems([]);
 		axios.get(baseURL).then((response) => {

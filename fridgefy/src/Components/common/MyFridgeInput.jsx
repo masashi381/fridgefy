@@ -8,26 +8,37 @@ function MyFridgeInput() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [suggestedIngredients, setSuggestedIngredients] = useState([""]);
 
+
 	function clearInput() {
 		setSearchQuery(" ");
 	}
 
-	const handleAddToFridge = () => {
-		const ingredientValue = document.querySelector("input").value;
-		if (ingredientValue) {
-			if (!fridge.includes(ingredientValue) && ingredients.includes(ingredientValue)) {
-				addIngredientToFridge(ingredientValue, false);
-			} else if (fridge.includes(ingredientValue)) {
-				alert("Ingredient already in the fridge");
-				clearInput();
-			}
-		}
-		if (!ingredients.includes(ingredientValue)) {
-			alert("Not an Ingredient");
-			clearInput();
-		}
-		clearInput();
-	};
+
+const handleAddToFridge = () => {
+    const ingredientValue = document.querySelector("input").value;
+    
+    let fridgeIncludes=false;
+    fridge.forEach(val=>{
+      if(val.name==ingredientValue && fridgeIncludes==false){
+        fridgeIncludes=true
+      };
+    })
+
+    if (ingredientValue) {
+
+      if(!fridgeIncludes && ingredients.includes(ingredientValue)) {
+        addIngredientToFridge(ingredientValue, false);
+      } else if (fridgeIncludes) {
+
+        alert("Ingredient already in the fridge");
+        clearInput();
+      }
+    } if (!ingredients.includes(ingredientValue)){
+      alert("Not an Ingredient")
+      clearInput();
+    };
+    clearInput();
+  };
 
 	let ingredients = [];
 	const uniqueIngredients = new Set();
