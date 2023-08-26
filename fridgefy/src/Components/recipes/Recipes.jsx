@@ -80,4 +80,8 @@ const StyledDiv = styled.div`
 		position: absolute;
 		z-index: 2;
 	}
+
+	@media screen and (max-width: 375px) {
+		width: 100vw;
+	}
 `;

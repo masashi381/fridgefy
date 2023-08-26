@@ -25,4 +25,8 @@ const MyFridgeDiv = styled.div`
 		font-size: 1.6rem;
 		color: #6a4c93;
 	}
+
+	@media screen and (max-width: 375px) {
+		width: 100vw;
+	}
 `;

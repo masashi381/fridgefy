@@ -26,4 +26,9 @@ const RecipesPageDiv = styled.div`
 	height: auto;
 	min-height: 80vh;
 	margin: 0 auto;
+
+	@media screen and (max-width: 375px) {
+		flex-direction: column;
+		justify-content: normal;
+	}
 `;
