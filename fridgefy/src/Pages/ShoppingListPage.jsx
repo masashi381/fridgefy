@@ -28,7 +28,6 @@ const ShoppingListDiv = styled.div`
 	width: 100vw;
 	height: 100%;
 	min-height: 80vh;
-	/* margin-bottom: 8rem; */
 	.itemsBuyList {
 		width: 25vw;
 		padding-top: 0.5rem;

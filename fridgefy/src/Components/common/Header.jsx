@@ -154,7 +154,7 @@ const StyledDiv = styled.div`
 		}
 	}
 
-	@media screen and (min-width: 375px) {
+	@media screen and (max-width: 375px) {
 		height: 20vh;
 		/* flex-direction: column; */
 		flex-wrap: wrap;
@@ -174,6 +174,7 @@ const StyledDiv = styled.div`
 		}
 		.logIn {
 			order: 2;
+			margin-right: 0.5rem;
 		}
 	}
 `;

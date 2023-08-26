@@ -58,7 +58,7 @@ const Div = styled.div`
 	}
 	h2 {
 		width: 80%;
-		margin: 10px auto;
+		margin: 1rem auto;
 		text-align: center;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
@@ -66,7 +66,7 @@ const Div = styled.div`
 		color: #6a4c93;
 	}
 
-	@media screen and (min-width: 375px) {
+	@media screen and (max-width: 375px) {
 		width: 80vw;
 		height: 70vh;
 		p {
@@ -76,6 +76,9 @@ const Div = styled.div`
 			width: 20rem;
 			height: 4rem;
 			font-size: 1.4rem;
+		}
+		h2 {
+			font-size: 1.6rem;
 		}
 	}
 `;
