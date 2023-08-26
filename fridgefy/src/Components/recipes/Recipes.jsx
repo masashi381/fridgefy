@@ -53,14 +53,9 @@ function Recipes() {
 
 	return (
 		<StyledDiv>
-			<div style={{ position: "relative" }}>
-				<RecipesAutoSearch
-					style={{ position: "absolute", zIndex: 99 }}
-					list={items}
-					setSearchedItem={setSearchedItem}
-				/>
-			</div>
+			<RecipesAutoSearch className="autoSearch" list={items} setSearchedItem={setSearchedItem} />
 			<RecipesFilterContainer
+				className="container"
 				list={recipesList}
 				setList={setRecipesList}
 				setRandomList={getRandomRecipes}
@@ -76,4 +71,13 @@ export default Recipes;
 const StyledDiv = styled.div`
 	width: 50vw;
 	padding: 1rem 1rem 0;
+	position: relative;
+	.autoSearch {
+		position: absolute;
+		z-index: 1;
+	}
+	.container {
+		position: absolute;
+		z-index: 2;
+	}
 `;
