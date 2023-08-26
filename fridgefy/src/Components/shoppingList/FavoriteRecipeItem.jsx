@@ -31,6 +31,7 @@ export default FavoriteRecipeItem;
 
 const RecipeContainer = styled.div`
 	width: 100%;
+	height: auto;
 	.inner {
 		display: flex;
 		justify-content: space-between;
