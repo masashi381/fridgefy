@@ -12,7 +12,9 @@ export default function HomeContent() {
 }
 
 const StyledDiv = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 80vh;
 	background: center/cover no-repeat url("../assets/images/homeImage.jpg");
-	position: relative;
 `;

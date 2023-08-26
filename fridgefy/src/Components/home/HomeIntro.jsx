@@ -31,9 +31,6 @@ const Div = styled.div`
 	height: 50vh;
 	padding-top: 1rem;
 	background-color: rgba(255, 255, 255, 0.85);
-	position: absolute;
-	top: 10rem;
-	right: 10rem;
 	border-radius: 3rem;
 	p {
 		width: 80%;
