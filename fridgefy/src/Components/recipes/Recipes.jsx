@@ -43,12 +43,10 @@ function Recipes() {
 	const getOptionsToSearch = (list) => {
 		setItems([]);
 		list.map((recipe) => {
-			console.log("Recipe", recipe);
 			setItems((prev) => {
 				return [...prev, { id: recipe.id, name: recipe.title }];
 			});
 		});
-		console.log("Items", items);
 	};
 
 	return (

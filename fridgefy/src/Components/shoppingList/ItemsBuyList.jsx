@@ -24,7 +24,7 @@ export default function ItemsBuyList() {
 
 	const uniqueIngredient = [...new Set(checkExistingIngredients)];
 
-	return Object.values(uniqueIngredient).map((value) => {
-		return <ItemsBuy ingredient={value} />;
+	return Object.values(uniqueIngredient).map((value, index) => {
+		return <ItemsBuy ingredient={value} key={index} />;
 	});
 }
