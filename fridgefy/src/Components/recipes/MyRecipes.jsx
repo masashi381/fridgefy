@@ -62,4 +62,8 @@ const MyRecipeSection = Styled.section`
             };
         };
     }
+
+    @media screen and (max-width: 375px){
+        width: 100vw;
+    }
 `;
