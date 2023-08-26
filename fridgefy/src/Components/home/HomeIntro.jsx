@@ -65,4 +65,17 @@ const Div = styled.div`
 		font-size: 2.4rem;
 		color: #6a4c93;
 	}
+
+	@media screen and (min-width: 375px) {
+		width: 80vw;
+		height: 70vh;
+		p {
+			font-size: 1.4rem;
+		}
+		button {
+			width: 20rem;
+			height: 4rem;
+			font-size: 1.4rem;
+		}
+	}
 `;
