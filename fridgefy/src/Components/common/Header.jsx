@@ -6,11 +6,11 @@ import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
 function Header() {
-  const { googleSignIn, googleLogOut, user } = useContext(User);
-  const { dispatch } = useContext(FavoritesRecipes);
-  const { setFridge } = useContext(MyFridgeContext);
+	const { googleSignIn, googleLogOut, user } = useContext(User);
+	const { dispatch } = useContext(FavoritesRecipes);
+	const { setFridge } = useContext(MyFridgeContext);
 
-  const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	const handleGoogleSignIn = async () => {
 		try {
@@ -20,16 +20,15 @@ function Header() {
 		}
 	};
 
-  const handleGoogleLogOut = async () => {
-    dispatch({ type: "deleteAll", payload: null });
-    setFridge([]);
-    try {
-      await googleLogOut();
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
+	const handleGoogleLogOut = async () => {
+		dispatch({ type: "deleteAll", payload: null });
+		setFridge([]);
+		try {
+			await googleLogOut();
+		} catch (e) {
+			console.log(e);
+		}
+	};
 
 	if (!user) {
 		return (
@@ -98,20 +97,17 @@ const StyledDiv = styled.div`
 		display: flex;
 		justify-content: space-between;
 		button {
+			margin-right: 1rem;
+			padding: 0.2rem 0.6rem;
+			background-color: #ffca3a;
+			box-shadow: 2px 2px black;
+			border-radius: 2.5rem;
+			cursor: pointer;
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
-			cursor: pointer;
-			margin-right: 1rem;
-			border-radius: 3rem;
-			border: none;
-			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
-			background: #ffca3a;
+			font-size: 1.4rem;
 			&:hover {
 				opacity: 0.5;
-			}
-			&:active {
-				transform: translateY(0.2rem);
-				border-bottom: none;
 			}
 			&:last-child {
 				margin: 0;
@@ -119,7 +115,7 @@ const StyledDiv = styled.div`
 		}
 	}
 	.logIn {
-		font-family: "DM Mono", monospace;
+		/* font-family: "DM Mono", monospace;
 		font-weight: 400;
 		cursor: pointer;
 		margin-right: 1rem;
@@ -133,6 +129,18 @@ const StyledDiv = styled.div`
 		&:active {
 			transform: translateY(0.2rem);
 			border-bottom: none;
+		} */
+		width: 10rem;
+		padding: 0.2rem 0.6rem;
+		background-color: #ffca3a;
+		box-shadow: 2px 2px black;
+		border-radius: 2.5rem;
+		cursor: pointer;
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 1.4rem;
+		&:hover {
+			opacity: 0.5;
 		}
 	}
 	.logInContainer {
@@ -147,19 +155,16 @@ const StyledDiv = styled.div`
 		}
 		button {
 			width: 10rem;
+			padding: 0.2rem 0.6rem;
+			background-color: #ffca3a;
+			box-shadow: 2px 2px black;
+			border-radius: 2.5rem;
+			cursor: pointer;
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
-			background: #ffca3a;
-			border-radius: 3rem;
-			cursor: pointer;
-			border: none;
-			border-bottom: 0.2rem solid rgba(51, 51, 51, 0.3);
+			font-size: 1.4rem;
 			&:hover {
 				opacity: 0.5;
-			}
-			&:active {
-				transform: translateY(0.2rem);
-				border-bottom: none;
 			}
 		}
 	}

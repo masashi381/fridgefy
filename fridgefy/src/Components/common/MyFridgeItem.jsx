@@ -59,6 +59,7 @@ const ListElement = styled.li`
 			color: #ff595e;
 			&:hover {
 				cursor: pointer;
+				color: red;
 			}
 		}
 	}

@@ -8,37 +8,34 @@ function MyFridgeInput() {
 	const [searchQuery, setSearchQuery] = useState("");
 	const [suggestedIngredients, setSuggestedIngredients] = useState([""]);
 
-
 	function clearInput() {
 		setSearchQuery(" ");
 	}
 
+	const handleAddToFridge = () => {
+		const ingredientValue = document.querySelector("input").value;
 
-const handleAddToFridge = () => {
-    const ingredientValue = document.querySelector("input").value;
-    
-    let fridgeIncludes=false;
-    fridge.forEach(val=>{
-      if(val.name==ingredientValue && fridgeIncludes==false){
-        fridgeIncludes=true
-      };
-    })
+		let fridgeIncludes = false;
+		fridge.forEach((val) => {
+			if (val.name == ingredientValue && fridgeIncludes == false) {
+				fridgeIncludes = true;
+			}
+		});
 
-    if (ingredientValue) {
-
-      if(!fridgeIncludes && ingredients.includes(ingredientValue)) {
-        addIngredientToFridge(ingredientValue, false);
-      } else if (fridgeIncludes) {
-
-        alert("Ingredient already in the fridge");
-        clearInput();
-      }
-    } if (!ingredients.includes(ingredientValue)){
-      alert("Not an Ingredient")
-      clearInput();
-    };
-    clearInput();
-  };
+		if (ingredientValue) {
+			if (!fridgeIncludes && ingredients.includes(ingredientValue)) {
+				addIngredientToFridge(ingredientValue, false);
+			} else if (fridgeIncludes) {
+				alert("Ingredient already in the fridge");
+				clearInput();
+			}
+		}
+		if (!ingredients.includes(ingredientValue)) {
+			alert("Not an Ingredient");
+			clearInput();
+		}
+		clearInput();
+	};
 
 	let ingredients = [];
 	const uniqueIngredients = new Set();
@@ -98,14 +95,17 @@ const StyledDiv = styled.div`
 		font-size: 1.4rem;
 	}
 	button {
+		margin-left: 0.5rem;
 		background-color: #ffca3a;
 		box-shadow: 2px 2px black;
-		margin-left: 0.5rem;
 		border-radius: 2.5rem;
 		cursor: pointer;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 1.2rem;
+		&:hover {
+			opacity: 0.5;
+		}
 	}
 `;
 
