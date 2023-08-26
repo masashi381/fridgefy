@@ -4,7 +4,7 @@ import { useState, useContext } from "react";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
 function MyFridgeItem({ ingredient, onDelete, isChecked }) {
-	const [checked, setChecked] = useState(false);
+	const [setChecked] = useState(false);
 	const { handlecheck } = useContext(MyFridgeContext);
 
 	return (

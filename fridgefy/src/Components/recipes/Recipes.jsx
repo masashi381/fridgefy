@@ -1,4 +1,3 @@
-import recipes from "../../backend/data/recipes.json";
 import { useState, useEffect } from "react";
 import RecipesList from "./RecipesList";
 import styled from "styled-components";
@@ -17,11 +16,11 @@ function Recipes() {
 	useEffect(() => {
 		if (Object.values(searchItem).length < 2) {
 			getRandomRecipes();
-			// setRecipesList(recipes.recipes)
 		} else {
 			getSearchedRecipe(searchItem.id);
 		}
 	}, [searchItem]);
+
 
 	const getRandomRecipes = () => {
 		setItems([]);
@@ -33,13 +32,6 @@ function Recipes() {
 			});
 			setRecipesList(response.data.recipes);
 		});
-
-		// recipes.recipes.map((recipe)=>{
-		//     setItems((prev)=>{
-		//         return [...prev, {id: recipe.id, name: recipe.title}]
-		//     })
-		// })
-		// setRecipesList(recipes.recipes)
 	};
 
 	const getSearchedRecipe = (id) => {
