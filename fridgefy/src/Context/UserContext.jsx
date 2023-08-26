@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
     signInWithPopup,
     GoogleAuthProvider,
-    signInWithRedirect,
     signOut,
     onAuthStateChanged
 } from "firebase/auth"
@@ -18,7 +17,6 @@ export function UserContext({ children }) {
     const googleSignIn = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
-        // signInWithRedirect(auth, provider)
     }
 
     const googleLogOut = () => {

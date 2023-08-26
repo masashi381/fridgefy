@@ -61,7 +61,6 @@ const handleAddToFridge = () => {
 		);
 		setSuggestedIngredients(suggested);
 	};
-	// console.log(ingredients);
 
 	return (
 		<StyledDiv>

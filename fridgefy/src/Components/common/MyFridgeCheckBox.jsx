@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function MyFridgeCheckBox({ element, setChecked, checked, handleChange }) {
+function MyFridgeCheckBox({ element, checked, handleChange }) {
 	const handleCheck = (e) => {
 		handleChange(e.target.value);
 	};
