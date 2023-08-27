@@ -46,6 +46,10 @@ const ShoppingListDiv = styled.div`
 		flex-direction: column;
 		.itemsBuyList {
 			width: 100vw;
+			order: 1;
+			h2 {
+				font-size: 2rem;
+			}
 		}
 	}
 `;

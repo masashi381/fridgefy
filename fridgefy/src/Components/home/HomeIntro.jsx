@@ -76,7 +76,7 @@ const Div = styled.div`
 		button {
 			width: 20rem;
 			height: 4rem;
-			font-size: 1.4rem;
+			font-size: 1.8rem;
 		}
 		h2 {
 			font-size: 1.8rem;

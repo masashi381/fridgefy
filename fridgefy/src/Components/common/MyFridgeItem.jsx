@@ -70,5 +70,10 @@ const ListElement = styled.li`
 				font-size: 1.6rem;
 			}
 		}
+		button {
+			i {
+				font-size: 1.6rem;
+			}
+		}
 	}
 `;

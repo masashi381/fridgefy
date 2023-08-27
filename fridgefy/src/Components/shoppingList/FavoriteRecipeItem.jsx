@@ -49,4 +49,9 @@ const RecipeContainer = styled.div`
 			color: #fff;
 		}
 	}
+	@media screen and (max-width: 375px) {
+		.inner {
+			height: 100%;
+		}
+	}
 `;

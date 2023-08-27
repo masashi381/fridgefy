@@ -27,6 +27,7 @@ const FavoriteRecipeDiv = styled.div`
 
 	@media screen and (max-width: 375px) {
 		width: 90vw;
+		order: 3;
 		margin: 1rem auto;
 	}
 `;
