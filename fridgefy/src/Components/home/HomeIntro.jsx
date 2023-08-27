@@ -67,10 +67,11 @@ const Div = styled.div`
 	}
 
 	@media screen and (max-width: 375px) {
-		width: 80vw;
-		height: 70vh;
+		width: 90vw;
+		height: 75vh;
 		p {
-			font-size: 1.4rem;
+			width: 85%;
+			font-size: 1.6rem;
 		}
 		button {
 			width: 20rem;
@@ -78,7 +79,7 @@ const Div = styled.div`
 			font-size: 1.4rem;
 		}
 		h2 {
-			font-size: 1.6rem;
+			font-size: 1.8rem;
 		}
 	}
 `;

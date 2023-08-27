@@ -35,8 +35,12 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 export default RecipesAutoSearch;
 
 const StyledDiv = styled.div`
+	position: relative;
+	/* margin-bottom: 10rem; */
 	.wrapper {
 		box-sizing: border-box;
+		position: absolute;
+		z-index: 99;
 	}
 
 	@media screen and (max-width: 375px) {

@@ -63,4 +63,12 @@ const ListElement = styled.li`
 			}
 		}
 	}
+
+	@media screen and (max-width: 375px) {
+		.checkboxContainer {
+			p {
+				font-size: 1.6rem;
+			}
+		}
+	}
 `;

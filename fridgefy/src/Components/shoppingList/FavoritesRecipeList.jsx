@@ -24,4 +24,9 @@ const FavoriteRecipeDiv = styled.div`
 	margin: 0;
 	border: 2px solid #ccc;
 	border-radius: 1rem;
+
+	@media screen and (max-width: 375px) {
+		width: 90vw;
+		margin: 1rem auto;
+	}
 `;

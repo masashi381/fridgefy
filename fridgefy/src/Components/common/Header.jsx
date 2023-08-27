@@ -163,10 +163,15 @@ const StyledDiv = styled.div`
 			margin: 0;
 			margin-left: 0.5rem;
 			order: 1;
+			font-size: 3rem;
 		}
 		.linkedContainer {
 			order: 3;
 			margin: 0 auto;
+			button {
+				font-size: 1.5rem;
+				padding: 0.5rem 1rem;
+			}
 		}
 		.logInContainer {
 			order: 2;

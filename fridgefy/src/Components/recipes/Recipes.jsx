@@ -53,14 +53,13 @@ function Recipes() {
 
 	return (
 		<StyledDiv>
-			<RecipesAutoSearch className="autoSearch" list={items} setSearchedItem={setSearchedItem} />
 			<RecipesFilterContainer
-				className="container"
 				list={recipesList}
 				setList={setRecipesList}
 				setRandomList={getRandomRecipes}
 				setOptions={getOptionsToSearch}
 			/>
+			<RecipesAutoSearch list={items} setSearchedItem={setSearchedItem} />
 			<RecipesList list={recipesList} />
 		</StyledDiv>
 	);
@@ -69,19 +68,12 @@ function Recipes() {
 export default Recipes;
 
 const StyledDiv = styled.div`
+	order: 3;
 	width: 50vw;
 	padding: 1rem 1rem 0;
 	position: relative;
-	.autoSearch {
-		position: absolute;
-		z-index: 1;
-	}
-	.container {
-		position: absolute;
-		z-index: 2;
-	}
-
 	@media screen and (max-width: 375px) {
 		width: 100vw;
+		padding: 0;
 	}
 `;

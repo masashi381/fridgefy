@@ -69,7 +69,7 @@ export default function RecipesList({ list }) {
 								<i className="fa-solid fa-square-xmark fa-2xl my-style"></i>
 							</div>
 							<h2 className="titleInMore">{item["title"]}</h2>
-							<img src={item["image"]} />
+							<img className="imgInsideMore" src={item["image"]} />
 							<div className="info">
 								<h3>Ingredients:</h3>
 								<p>
@@ -108,18 +108,17 @@ const Ul = Styled.ul`
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
-	position: relative;
 	padding: 0;
 	margin: 0 auto;
 	li{
-		width: 22rem;
+		width: 35%;
 		border: 1px solid grey;
 		margin: 1rem 0;
 		border-radius: 0.5rem;
 		background: #1982c4;
 		box-sizing: border-box;
 		img{
-			width:  21.8rem;
+			width:  22.4rem;
 			height: 15rem;
 			object-fit: cover;
 		}
@@ -134,6 +133,7 @@ const Ul = Styled.ul`
 		.detail{
 			display:none;
 			position: absolute;
+			z-index: 2;
 			top:0;
 			left: 50%;
 			transform: translateX(-50%);
@@ -161,7 +161,7 @@ const Ul = Styled.ul`
 			.titleInMore{
 				color: #1982c4;
 			}
-			img{
+			.imgInsideMore{
         display: block;
 				width: 36rem;
 				height: auto;
@@ -205,6 +205,44 @@ const Ul = Styled.ul`
 				font-size: 1.2rem;
 				&:hover {
 					opacity: 0.5;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 375px){
+		width: 90vw;
+    justify-content: normal;
+    flex-direction: column;
+		li {
+			width: 100%;
+			img{
+				width: 100%;
+			}
+			.detail{
+				width: 90%;
+				.titleInMore{
+					font-size: 2rem;
+				}
+				.imgInsideMore{
+					width: 90%;
+					height: auto;
+				}
+				.info{
+					width: 90%;
+					h3 {
+						font-size: 1.8rem;
+					}
+					p{
+						width: 100%;
+						font-size: 1.6rem;
+					}
+				}
+			}
+			.btnContainer{
+				button{
+					font-size: 1.6rem;
+					padding: 0.5rem 1rem;
 				}
 			}
 		}
