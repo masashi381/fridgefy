@@ -13,13 +13,24 @@ export default function HomeIntro() {
 	return (
 		<Div>
 			<p>
-				Welcome to Fridgefy - your ultimate destination for culinary inspiration! Whether you're a seasoned chef
-				or a novice in the kitchen, we're here to make your cooking journey delightful and flavorful. Our
+				Welcome to <strong>Fridgefy</strong> - your ultimate destination for culinary inspiration! 
+			</p>
+			<br/>
+
+			<p>
+				Whether you're a seasoned chef or a novice in the kitchen, we're here to make your cooking journey delightful and flavorful. Our
 				extensive collection of recipes caters to all tastes and dietary preferences, ensuring that you'll find
 				something to excite your taste buds. From quick and easy weeknight dinners to show-stopping desserts,
-				we've got you covered. Join us in exploring the art of cooking as we embark on a flavorful adventure
+				we've got you covered. 
+			</p>
+			<br/>
+			<p>
+				
+				<strong>Join us</strong> in exploring the art of cooking as we embark on a flavorful adventure
 				together!
 			</p>
+			<br/>
+
 
 			{user != null ? <button onClick={handleclick}>Recipes</button> : <h2>Please log in to start!</h2>}
 		</Div>
@@ -32,6 +43,11 @@ const Div = styled.div`
 	padding-top: 1rem;
 	background-color: rgba(255, 255, 255, 0.85);
 	border-radius: 3rem;
+	display: flex;
+	flex-direction: column;
+	p:first-child {
+  	padding-top: 5rem;
+	}
 	p {
 		width: 80%;
 		margin: 0 auto;
@@ -39,6 +55,8 @@ const Div = styled.div`
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		color: #1982c4;
+		text-align: justify;
+  		text-justify: inter-word;
 	}
 	button {
 		display: block;
@@ -64,6 +82,7 @@ const Div = styled.div`
 		font-weight: 400;
 		font-size: 2.4rem;
 		color: #6a4c93;
+		padding-top: 2rem;
 	}
 
 	@media screen and (max-width: 834px) {

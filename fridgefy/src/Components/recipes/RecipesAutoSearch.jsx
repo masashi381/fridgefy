@@ -6,14 +6,12 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 		setSearchedItem(item);
 	};
 
-	const handleOnClear = () => {
-		setSearchedItem([]);
-	};
+	
 
 	const formatResult = (item) => {
 		return (
 			<>
-				<span style={{ display: "block", textAlign: "left" }}>{item.name}</span>
+				<span style={{ display: "block", textAlign: "left", zIndex:6 }}>{item.name}</span>
 			</>
 		);
 	};
@@ -25,7 +23,6 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 				onSelect={handleOnSelect}
 				autoFocus
 				formatResult={formatResult}
-				onClear={handleOnClear}
 				styling={style}
 			/>
 		</StyledDiv>
@@ -35,6 +32,7 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 export default RecipesAutoSearch;
 
 const StyledDiv = styled.div`
+	z-index: 1;
 	position: relative;
 	/* margin-bottom: 10rem; */
 	.wrapper {

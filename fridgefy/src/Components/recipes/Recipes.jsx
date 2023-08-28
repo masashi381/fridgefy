@@ -7,7 +7,7 @@ import RecipesAutoSearch from "./RecipesAutoSearch";
 
 function Recipes() {
 	const key = "5bd0456a9ef9416eb164f5581de91628";
-	const nOfRecipes = 2;
+	const nOfRecipes = 15;
 	const baseURL = `https://api.spoonacular.com/recipes/random/?apiKey=${key}&number=${nOfRecipes}`;
 	const [recipesList, setRecipesList] = useState([]);
 	const [items, setItems] = useState([]);
@@ -51,13 +51,18 @@ function Recipes() {
 
 	return (
 		<StyledDiv>
+			<StyledCointainer>
+			 
+			<RecipesAutoSearch list={items} setSearchedItem={setSearchedItem} />
+	
 			<RecipesFilterContainer
 				list={recipesList}
 				setList={setRecipesList}
 				setRandomList={getRandomRecipes}
 				setOptions={getOptionsToSearch}
-			/>
-			<RecipesAutoSearch list={items} setSearchedItem={setSearchedItem} />
+			/>	
+		
+			</StyledCointainer>
 			<RecipesList list={recipesList} />
 		</StyledDiv>
 	);
@@ -75,3 +80,7 @@ const StyledDiv = styled.div`
 		order: 3;
 	}
 `;
+
+const StyledCointainer = styled.div`
+	
+`

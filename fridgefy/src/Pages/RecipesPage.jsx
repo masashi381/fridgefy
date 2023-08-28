@@ -8,7 +8,7 @@ import FooterComponent from "../Components/common/FooterComponent";
 export default function RecipesPageSection() {
 	return (
 		<section>
-			<Header />
+			<Header location={"recipesPage"}/>
 			<RecipesPageDiv>
 				<MyFridgeComponent />
 				<Recipes />
