@@ -5,10 +5,12 @@ import styled from "styled-components";
 import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 
-function Header() {
+function Header({location}) {
 	const { googleSignIn, googleLogOut, user } = useContext(User);
 	const { dispatch } = useContext(FavoritesRecipes);
 	const { setFridge } = useContext(MyFridgeContext);
+
+	console.log("location", location)
 
 	const navigate = useNavigate();
 
@@ -45,29 +47,13 @@ function Header() {
 		<StyledDiv>
 			<h1><strong>F</strong>ridgeFy</h1>
 			<div className="linkedContainer">
-				<button
-					onClick={() => {
-						navigate("/home");
-					}}
-				>
-					Home
-				</button>
 
-				<button
-					onClick={() => {
-						navigate("/recipes");
-					}}
-				>
-					Recipes
-				</button>
+				{location === "homePage" ? <button disabled >Home</button> : <button onClick={() => {navigate("/home");}}>Home</button>}
 
-				<button
-					onClick={() => {
-						navigate("/shoppinglist");
-					}}
-				>
-					Shopping List
-				</button>
+				{location === "recipesPage" ? <button disabled >Recipes</button> : <button onClick={() => {navigate("/recipes");}}>Recipes</button>}
+				
+				{location === "listPage" ? <button disabled >Shopping List</button> : <button onClick={() => {navigate("/shoppinglist");}}>Shopping List</button>}
+
 			</div>
 			<div className="logInContainer">
 				<p>Hi, {user.displayName}</p>
@@ -98,7 +84,7 @@ const StyledDiv = styled.div`
 		justify-content: space-between;
 		button {
 			margin-right: 1rem;
-			padding: 0.2rem 0.6rem;
+			padding: 0.5rem 0.8rem;
 			background-color: #ffca3a;
 			box-shadow: 2px 2px black;
 			border-radius: 2.5rem;
@@ -106,17 +92,20 @@ const StyledDiv = styled.div`
 			font-family: "DM Mono", monospace;
 			font-weight: 400;
 			font-size: 1.4rem;
-			&:hover {
+			&:hover:enabled {
 				opacity: 0.5;
 			}
 			&:last-child {
 				margin: 0;
 			}
 		}
+		button:disabled{
+			cursor: default;
+		}
 	}
 	.logIn {
 		width: 10rem;
-		padding: 0.2rem 0.6rem;
+		padding: 0.5rem 0.6rem;
 		background-color: #ffca3a;
 		box-shadow: 2px 2px black;
 		border-radius: 2.5rem;
@@ -140,7 +129,7 @@ const StyledDiv = styled.div`
 		}
 		button {
 			width: 10rem;
-			padding: 0.2rem 0.6rem;
+			padding: 0.5rem 0.6rem;
 			background-color: #ffca3a;
 			box-shadow: 2px 2px black;
 			border-radius: 2.5rem;

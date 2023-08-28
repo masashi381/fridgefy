@@ -7,7 +7,7 @@ import FooterComponent from "../Components/common/FooterComponent";
 function ShoppingList() {
 	return (
 		<>
-			<Header />
+			<Header location={"listPage"}/>
 			<ShoppingListDiv>
 				<MyFridgeComponent />
 				<FavoriteRecipeList />

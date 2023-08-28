@@ -7,7 +7,7 @@ import styled from "styled-components";
 export default function Home() {
 	return (
 		<HomeDiv>
-			<Header />
+			<Header location={"homePage"} />
 			<HomeContent />
 			<FooterComponent />
 		</HomeDiv>

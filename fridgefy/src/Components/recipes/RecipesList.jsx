@@ -209,10 +209,13 @@ const Ul = Styled.ul`
 				font-family: "DM Mono", monospace;
 				font-weight: 400;
 				font-size: 1.2rem;
-				&:hover {
+				&:hover:enabled {
 					opacity: 0.5;
 				}
 			}
+			button:disabled{
+			cursor: default;
+		}
 		}
 	}
 
@@ -261,15 +264,21 @@ const StyledReactPaginate = Styled(ReactPaginate)`
 	width: fit-content;
 	margin: 0 auto;
 	padding: 0;
-	cursor: pointer;
+	
 	li {
 		margin: 10px;
 		padding: 5px;
+		cursor: pointer;
+		&:hover{
+		background-color: #1982c4;
+		color: #fff;
+		}
 	}
 	li.selected {
 		background-color: #1982c4;
 		color: #fff;
 	}
+	
 `;
 
 const StyledImgCointainer = Styled.div`

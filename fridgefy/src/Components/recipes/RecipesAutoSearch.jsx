@@ -6,9 +6,7 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 		setSearchedItem(item);
 	};
 
-	const handleOnClear = () => {
-		setSearchedItem([]);
-	};
+	
 
 	const formatResult = (item) => {
 		return (
@@ -25,7 +23,6 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 				onSelect={handleOnSelect}
 				autoFocus
 				formatResult={formatResult}
-				onClear={handleOnClear}
 				styling={style}
 			/>
 		</StyledDiv>
