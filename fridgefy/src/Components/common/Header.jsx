@@ -10,8 +10,6 @@ function Header({location}) {
 	const { dispatch } = useContext(FavoritesRecipes);
 	const { setFridge } = useContext(MyFridgeContext);
 
-	console.log("location", location)
-
 	const navigate = useNavigate();
 
 	const handleGoogleSignIn = async () => {
