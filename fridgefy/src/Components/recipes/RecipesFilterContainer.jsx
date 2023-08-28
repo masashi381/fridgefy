@@ -111,6 +111,7 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 	};
 
 	const submitRequest = () => {
+
 		setInnerState([]);
 		let queryIngredients = checkedFrigeItems();
 		if (
@@ -127,7 +128,7 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 		let diets = mountStringFilter(filters[1]);
 		let intolerances = mountStringFilter(filters[2]);
 
-		let baseUrl = `https://api.spoonacular.com/recipes/complexSearch?addRecipeInformation=true&fillIngredients=true&apiKey=${key}&${
+		let baseUrl = `https://api.spoonacular.com/recipes/complexSearch?&apiKey=${key}&${
 			cuisines ? cuisines + "&" : ""
 		}${diets ? diets + "&" : ""}${intolerances ? intolerances + "&" : ""}`;
 		baseUrl = baseUrl.substring(0, baseUrl.length - 1) + queryIngredients;
@@ -135,17 +136,17 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 		let nOfRecipes = 15;
 
 		axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response) => {
-			if("response", response.data.results.length === 0){
-				alert("No recipes found with the filter(s) entered. Please refine your search")
-				return 
-			} else {
-				response.data.results.map((result) => {
-	
-					setInnerState((prev) => {
-						return [...prev, result];
-					});
-				});
-			}
+
+				response.data.results.map((value, index)=>{
+					let url = `https://api.spoonacular.com/recipes/${value.id}/information?apiKey=${key}`
+					axios.get(url).then((res)=>{
+						setInnerState((prev)=>{
+							return [...prev, res.data]
+						})
+
+					})
+				})
+			
 		});
 	};
 

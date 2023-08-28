@@ -18,9 +18,6 @@ export default function RecipesList({ list }) {
 			});
 
 			val1.disabled = disabled ? true : false;
-			if(val1.disabled){
-				console.log("true")
-			}
 			
 		});
 	});
