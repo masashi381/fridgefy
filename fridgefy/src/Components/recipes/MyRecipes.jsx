@@ -14,7 +14,7 @@ export default function MyRecipesSec() {
 			<h2>My Recipes</h2>
 			<ul>
 				{state.map((item, index) => (
-					<li>
+					<li key={index}>
 						<p key={index}>{item.title}</p>
 						<i className="fa-solid fa-trash fa-lg" onClick={() => deleteRecipe(item.id)}></i>
 					</li>

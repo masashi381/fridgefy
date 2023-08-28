@@ -33,7 +33,7 @@ function Header() {
 	if (!user) {
 		return (
 			<StyledDiv>
-				<h1>Fridgefy</h1>
+				<h1><strong>F</strong>ridgeFy</h1>
 				<button className="logIn" onClick={handleGoogleSignIn}>
 					LOGIN
 				</button>
@@ -43,7 +43,7 @@ function Header() {
 
 	return (
 		<StyledDiv>
-			<h1>FridgeFy</h1>
+			<h1><strong>F</strong>ridgeFy</h1>
 			<div className="linkedContainer">
 				<button
 					onClick={() => {
@@ -153,6 +153,11 @@ const StyledDiv = styled.div`
 			}
 		}
 	}
+
+	strong{
+		font-size: 4rem;
+	}
+
 	@media screen and (max-width: 834) {
 	}
 	@media screen and (max-width: 375px) {

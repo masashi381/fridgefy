@@ -132,14 +132,20 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 		}${diets ? diets + "&" : ""}${intolerances ? intolerances + "&" : ""}`;
 		baseUrl = baseUrl.substring(0, baseUrl.length - 1) + queryIngredients;
 
-		let nOfRecipes = 2;
+		let nOfRecipes = 15;
 
 		axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response) => {
-			response.data.results.map((result) => {
-				setInnerState((prev) => {
-					return [...prev, result];
+			if("response", response.data.results.length === 0){
+				alert("No recipes found with the filter(s) entered. Please refine your search")
+				return 
+			} else {
+				response.data.results.map((result) => {
+	
+					setInnerState((prev) => {
+						return [...prev, result];
+					});
 				});
-			});
+			}
 		});
 	};
 

@@ -18,10 +18,14 @@ export default function RecipesList({ list }) {
 			});
 
 			val1.disabled = disabled ? true : false;
+			if(val1.disabled){
+				console.log("true")
+			}
+			
 		});
 	});
 
-	const itemsPerPage = 15;
+	const itemsPerPage = 6;
 	const totalPages = Math.ceil(list.length / itemsPerPage);
 	const startIndex = currentPage * itemsPerPage;
 	const endIndex = startIndex + itemsPerPage;
@@ -62,7 +66,9 @@ export default function RecipesList({ list }) {
 			<Ul>
 				{subset.map((item, index) => (
 					<li key={index} className={index}>
-						<img src={item["image"]} />
+						<StyledImgCointainer>
+							<img src={item["image"]} />
+						</StyledImgCointainer>
 						<h2>{item["title"]}</h2>
 						<div className="detail">
 							<div className="deleteBtn" onClick={switchDetail}>
@@ -255,6 +261,7 @@ const StyledReactPaginate = Styled(ReactPaginate)`
 	width: fit-content;
 	margin: 0 auto;
 	padding: 0;
+	cursor: pointer;
 	li {
 		margin: 10px;
 		padding: 5px;
@@ -264,3 +271,14 @@ const StyledReactPaginate = Styled(ReactPaginate)`
 		color: #fff;
 	}
 `;
+
+const StyledImgCointainer = Styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 1rem;
+	img{
+		margin-top: 1rem;
+		border-radius: 0.5rem;
+	}
+`
