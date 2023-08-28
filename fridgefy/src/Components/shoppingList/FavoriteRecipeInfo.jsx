@@ -2,8 +2,6 @@ import styled from "styled-components";
 import parse from "html-react-parser";
 
 function FavoriteRecipeInfo({ recipe }) {
-	console.log("recipeIns", recipe.instructions);
-
 	return (
 		<FlexDiv>
 			<p>{parse(recipe.instructions)}</p>

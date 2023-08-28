@@ -6,7 +6,7 @@ import axios from "axios";
 import RecipesAutoSearch from "./RecipesAutoSearch";
 
 function Recipes() {
-	const key = "5bd0456a9ef9416eb164f5581de91628";
+	const key = import.meta.env.VITE_SERVER_API_KEY;
 	const nOfRecipes = 15;
 	const baseURL = `https://api.spoonacular.com/recipes/random/?apiKey=${key}&number=${nOfRecipes}`;
 	const [recipesList, setRecipesList] = useState([]);
