@@ -18,7 +18,6 @@ export default MyFridgeComponent;
 const MyFridgeDiv = styled.div`
 	width: 25vw;
 	padding-top: 0.5rem;
-	order: 2;
 	h2 {
 		text-align: center;
 		font-family: "DM Mono", monospace;
@@ -29,6 +28,7 @@ const MyFridgeDiv = styled.div`
 
 	@media screen and (max-width: 375px) {
 		width: 100vw;
+		order: 2;
 		h2 {
 			font-size: 2rem;
 		}

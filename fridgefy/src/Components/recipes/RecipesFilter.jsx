@@ -25,5 +25,6 @@ const styling = {
 		...baseStyles,
 		width: "100%",
 		margin: "0 auto",
+		fontSize: "1.6rem",
 	}),
 };

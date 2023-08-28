@@ -68,12 +68,12 @@ function Recipes() {
 export default Recipes;
 
 const StyledDiv = styled.div`
-	order: 3;
 	width: 50vw;
 	padding: 1rem 1rem 0;
 	position: relative;
 	@media screen and (max-width: 375px) {
 		width: 100vw;
 		padding: 0;
+		order: 3;
 	}
 `;

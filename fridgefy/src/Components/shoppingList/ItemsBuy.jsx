@@ -14,7 +14,7 @@ export default function ItemsBuy({ ingredient }) {
 					addIngredientToFridge(ingredient, false);
 				}}
 			>
-				<i class="fa-solid fa-plus"></i>
+				<i className="fa-solid fa-plus"></i>
 			</button>
 		</Li>
 	);

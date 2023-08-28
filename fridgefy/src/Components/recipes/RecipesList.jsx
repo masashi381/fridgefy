@@ -34,7 +34,7 @@ export default function RecipesList({ list }) {
 			});
 		}
 		const targrt = e.target.closest("li").querySelector(".detail");
-		targrt.style.top = window.pageYOffset - 150 + "px";
+		// targrt.style.top = window.pageYOffset - 150 + "px";
 		targrt.style.display = targrt.style.display == "block" ? "none" : "block";
 	};
 
@@ -134,7 +134,7 @@ const Ul = Styled.ul`
 			display:none;
 			position: absolute;
 			z-index: 2;
-			top:0;
+			top: 25%;
 			left: 50%;
 			transform: translateX(-50%);
 			background-color: rgba(255, 255, 255, 0.9);
