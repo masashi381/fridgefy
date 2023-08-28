@@ -3,6 +3,7 @@ import RecipesFilter from "./RecipesFilter";
 import axios from "axios";
 import { MyFridgeContext } from "../../Context/MyFridgeContext";
 import styled from "styled-components";
+import { diets, intolerances, cuisines } from "../../Constants/Options"
 
 function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 	const [innerState, setInnerState] = useState([]);
@@ -58,84 +59,22 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 
 	const [filters, dispatch] = useReducer(filtersReducer, optionFilters);
 
-	const cuisines = [
-		"African",
-		"Asian",
-		"American",
-		"British",
-		"Cajun",
-		"Caribbean",
-		"Chinese",
-		"Eastern European",
-		"European",
-		"French",
-		"German",
-		"Greek",
-		"Indian",
-		"Irish",
-		"Italian",
-		"Japanese",
-		"Jewish",
-		"Korean",
-		"Latin American",
-		"Mediterranean",
-		"Mexican",
-		"Middle Eastern",
-		"Nordic",
-		"Southern",
-		"Spanish",
-		"Thai",
-		"Vietnamese",
-	];
-
-	const optionsCuisine = [];
-	cuisines.forEach((el) => {
-		optionsCuisine.push({
+	const optionsGenerating = (rawOptions) => {
+		const formatedOptions = []
+		rawOptions.forEach((el) => {
+		formatedOptions.push({
 			value: el,
 			label: el,
 		});
-	});
+	}
+	)
+	return formatedOptions
+}
 
-	const intolerances = [
-		"Dairy",
-		"Egg",
-		"Gluten",
-		"Grain",
-		"Peanut",
-		"Seafood",
-		"Sesame",
-		"Shellfish",
-		"Soy",
-		"Sulfite",
-		"Tree Nut",
-		"Wheat",
-	];
+	const optionsCuisine = optionsGenerating(cuisines);
+	const optionsIntolerances = optionsGenerating(intolerances);
+	const optionsDiets = optionsGenerating(diets);
 
-	const optionsIntolerances = [];
-	intolerances.forEach((el) => {
-		optionsIntolerances.push({
-			value: el,
-			label: el,
-		});
-	});
-
-	const diets = [
-		"gluten free",
-		"dairy free",
-		"ketogenic",
-		"vegan",
-		"paleolithic",
-		"lacto ovo vegetarian",
-		"vegetarian",
-	];
-
-	const optionsDiets = [];
-	diets.forEach((el) => {
-		optionsDiets.push({
-			value: el,
-			label: el,
-		});
-	});
 
 	const mountStringFilter = (obj) => {
 		let result = "";
@@ -174,7 +113,6 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 	const submitRequest = () => {
 		setInnerState([]);
 		let queryIngredients = checkedFrigeItems();
-		console.log("query", queryIngredients);
 		if (
 			filters[0].cuisine.length === 0 &&
 			filters[1].diet.length === 0 &&
@@ -194,8 +132,6 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 		}${diets ? diets + "&" : ""}${intolerances ? intolerances + "&" : ""}`;
 		baseUrl = baseUrl.substring(0, baseUrl.length - 1) + queryIngredients;
 
-		console.log("baseURL", baseUrl);
-
 		let nOfRecipes = 2;
 
 		axios.get(`${baseUrl}&number=${nOfRecipes}`).then((response) => {
@@ -203,7 +139,6 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 				setInnerState((prev) => {
 					return [...prev, result];
 				});
-				console.log("result", result);
 			});
 		});
 	};
