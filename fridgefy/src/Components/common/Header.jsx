@@ -153,10 +153,10 @@ const StyledDiv = styled.div`
 			}
 		}
 	}
-
+	@media screen and (max-width: 834) {
+	}
 	@media screen and (max-width: 375px) {
 		height: 20vh;
-		/* flex-direction: column; */
 		flex-wrap: wrap;
 		padding: 0;
 		h1 {

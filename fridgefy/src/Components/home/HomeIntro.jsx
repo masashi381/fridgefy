@@ -66,6 +66,14 @@ const Div = styled.div`
 		color: #6a4c93;
 	}
 
+	@media screen and (max-width: 834px) {
+		width: 80vw;
+		height: 45vh;
+		p {
+			width: 90%;
+		}
+	}
+
 	@media screen and (max-width: 375px) {
 		width: 90vw;
 		height: 75vh;
