@@ -35,4 +35,16 @@ const FlexDiv = styled.div`
 		object-fit: cover;
 		margin-left: 0.5rem;
 	}
+
+	@media screen and (max-width: 375px) {
+		flex-direction: column;
+		p {
+			order: 2;
+			font-size: 1.4rem;
+		}
+		img {
+			order: 1;
+			width: 33.75rem;
+		}
+	}
 `;

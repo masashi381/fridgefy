@@ -29,4 +29,10 @@ const DeleteSpan = styled.span`
 			color: red;
 		}
 	}
+
+	@media screen and (max-width: 375px) {
+		i {
+			font-size: 2rem;
+		}
+	}
 `;

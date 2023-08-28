@@ -209,28 +209,42 @@ function RecipesFilterContainer({ list, setList, setRandomList, setOptions }) {
 	};
 
 	return (
-		<>
+		<FilterContainer>
 			<RecipesFilter name="cuisine" options={optionsCuisine} dispatch={dispatch} />
 			<RecipesFilter name="intolerances" options={optionsIntolerances} dispatch={dispatch} />
 			<RecipesFilter name="diet" options={optionsDiets} dispatch={dispatch} />
-			<Btn onClick={submitRequest}>Filter</Btn>
-		</>
+			<button onClick={submitRequest}>Filter</button>
+		</FilterContainer>
 	);
 }
 
 export default RecipesFilterContainer;
 
-const Btn = styled.button`
-	margin: 0.5rem 0;
-	background-color: #ffca3a;
-	box-shadow: 2px 2px black;
-	margin-left: 0.5rem;
-	border-radius: 2.5rem;
-	cursor: pointer;
-	font-family: "DM Mono", monospace;
-	font-weight: 400;
-	font-size: 1.2rem;
-	&:hover {
-		opacity: 0.5;
+const FilterContainer = styled.div`
+	width: 100%;
+	button {
+		margin: 0.5rem 0;
+		background-color: #ffca3a;
+		box-shadow: 2px 2px black;
+		margin-left: 0.5rem;
+		border-radius: 2.5rem;
+		cursor: pointer;
+		font-family: "DM Mono", monospace;
+		font-weight: 400;
+		font-size: 1.2rem;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		width: 90vw;
+		margin: 1rem auto;
+		button {
+			width: 90vw;
+			height: 4rem;
+			margin: 1rem auto;
+			font-size: 1.8rem;
+		}
 	}
 `;

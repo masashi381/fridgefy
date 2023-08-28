@@ -14,7 +14,7 @@ export default function ItemsBuy({ ingredient }) {
 					addIngredientToFridge(ingredient, false);
 				}}
 			>
-				<i class="fa-solid fa-plus"></i>
+				<i className="fa-solid fa-plus"></i>
 			</button>
 		</Li>
 	);
@@ -50,6 +50,13 @@ const Li = styled.li`
 		font-size: 1.2rem;
 		&:hover {
 			opacity: 0.5;
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		width: 90%;
+		p {
+			font-size: 1.6rem;
 		}
 	}
 `;

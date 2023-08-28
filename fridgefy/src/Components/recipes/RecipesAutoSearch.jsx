@@ -2,7 +2,6 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import styled from "styled-components";
 
 function RecipesAutoSearch({ list, setSearchedItem }) {
-
 	const handleOnSelect = (item) => {
 		setSearchedItem(item);
 	};
@@ -36,8 +35,17 @@ function RecipesAutoSearch({ list, setSearchedItem }) {
 export default RecipesAutoSearch;
 
 const StyledDiv = styled.div`
+	position: relative;
+	/* margin-bottom: 10rem; */
 	.wrapper {
 		box-sizing: border-box;
+		position: absolute;
+		z-index: 99;
+	}
+
+	@media screen and (max-width: 375px) {
+		width: 90%;
+		margin: 0 auto;
 	}
 `;
 const style = {

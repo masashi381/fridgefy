@@ -58,11 +58,36 @@ const Div = styled.div`
 	}
 	h2 {
 		width: 80%;
-		margin: 10px auto;
+		margin: 1rem auto;
 		text-align: center;
 		font-family: "DM Mono", monospace;
 		font-weight: 400;
 		font-size: 2.4rem;
 		color: #6a4c93;
+	}
+
+	@media screen and (max-width: 834px) {
+		width: 80vw;
+		height: 45vh;
+		p {
+			width: 90%;
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		width: 90vw;
+		height: 75vh;
+		p {
+			width: 85%;
+			font-size: 1.6rem;
+		}
+		button {
+			width: 20rem;
+			height: 4rem;
+			font-size: 1.8rem;
+		}
+		h2 {
+			font-size: 1.8rem;
+		}
 	}
 `;

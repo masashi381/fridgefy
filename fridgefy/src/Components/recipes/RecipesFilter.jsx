@@ -23,7 +23,8 @@ export default RecipesFilter;
 const styling = {
 	control: (baseStyles, state) => ({
 		...baseStyles,
-		width: "50vw",
+		width: "100%",
 		margin: "0 auto",
+		fontSize: "1.6rem",
 	}),
 };

@@ -20,4 +20,9 @@ const Span = styled.span`
 	&:hover {
 		cursor: pointer;
 	}
+	@media screen and (max-width: 375px) {
+		i {
+			font-size: 2rem;
+		}
+	}
 `;

@@ -28,7 +28,6 @@ const ShoppingListDiv = styled.div`
 	width: 100vw;
 	height: 100%;
 	min-height: 80vh;
-	/* margin-bottom: 8rem; */
 	.itemsBuyList {
 		width: 25vw;
 		padding-top: 0.5rem;
@@ -40,6 +39,17 @@ const ShoppingListDiv = styled.div`
 			font-weight: 400;
 			font-size: 1.6rem;
 			color: #6a4c93;
+		}
+	}
+
+	@media screen and (max-width: 375px) {
+		flex-direction: column;
+		.itemsBuyList {
+			width: 100vw;
+			order: 1;
+			h2 {
+				font-size: 2rem;
+			}
 		}
 	}
 `;

@@ -115,21 +115,6 @@ const StyledDiv = styled.div`
 		}
 	}
 	.logIn {
-		/* font-family: "DM Mono", monospace;
-		font-weight: 400;
-		cursor: pointer;
-		margin-right: 1rem;
-		border-radius: 3rem;
-		border: none;
-		border-bottom: 0.2rem solid rgba(51, 51, 51, 0.5);
-		background: #ffca3a;
-		&:hover {
-			opacity: 0.5;
-		}
-		&:active {
-			transform: translateY(0.2rem);
-			border-bottom: none;
-		} */
 		width: 10rem;
 		padding: 0.2rem 0.6rem;
 		background-color: #ffca3a;
@@ -166,6 +151,35 @@ const StyledDiv = styled.div`
 			&:hover {
 				opacity: 0.5;
 			}
+		}
+	}
+	@media screen and (max-width: 834) {
+	}
+	@media screen and (max-width: 375px) {
+		height: 20vh;
+		flex-wrap: wrap;
+		padding: 0;
+		h1 {
+			margin: 0;
+			margin-left: 0.5rem;
+			order: 1;
+			font-size: 3rem;
+		}
+		.linkedContainer {
+			order: 3;
+			margin: 0 auto;
+			button {
+				font-size: 1.5rem;
+				padding: 0.5rem 1rem;
+			}
+		}
+		.logInContainer {
+			order: 2;
+			margin-right: 0.5rem;
+		}
+		.logIn {
+			order: 2;
+			margin-right: 0.5rem;
 		}
 	}
 `;

@@ -15,4 +15,5 @@ export default FavoriteBtnContainer;
 
 const FlexDiv = styled.div`
 	display: flex;
+	align-items: center;
 `;

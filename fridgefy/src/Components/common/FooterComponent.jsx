@@ -10,16 +10,16 @@ function FooterComponent() {
 					<a href="https://github.com/diogoka" target="blank">
 						Diogo
 					</a>
-					,
+					<span>,</span>
 					<a href="https://github.com/masashi381" target="blank">
 						{" "}
 						Masashi
 					</a>
-					,{" "}
+					<span>,</span>{" "}
 					<a href="https://github.com/DaisukeSK" target="blank">
 						Daisuke{" "}
 					</a>{" "}
-					&{" "}
+					<span>&</span>{" "}
 					<a href="https://github.com/GerardoAz" target="blank">
 						Gerardo{" "}
 					</a>
@@ -30,12 +30,12 @@ function FooterComponent() {
 	);
 }
 
+export default FooterComponent;
+
 const FooterDiv = styled.div`
 	background-color: #1982c4;
 	width: 100%;
 	height: 10vh;
-	/* position: fixed; */
-	/* bottom: 0; */
 	div {
 		height: 2rem;
 		display: flex;
@@ -66,6 +66,23 @@ const FooterDiv = styled.div`
 		text-align: center;
 		margin: 1rem auto;
 	}
-`;
 
-export default FooterComponent;
+	@media screen and (max-width: 375px) {
+		height: 30vh;
+		div {
+			flex-direction: column;
+			height: auto;
+			padding-top: 2rem;
+			h4 {
+				display: flex;
+				flex-direction: column;
+				span {
+					display: none;
+				}
+				a {
+					padding: 0.5rem 0;
+				}
+			}
+		}
+	}
+`;

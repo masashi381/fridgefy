@@ -107,6 +107,21 @@ const StyledDiv = styled.div`
 			opacity: 0.5;
 		}
 	}
+	@media screen and (max-width: 375px) {
+		flex-direction: column;
+		input {
+			width: 90%;
+			margin: 0 auto 1rem;
+			height: 3rem;
+			font-size: 1.6rem;
+		}
+		button {
+			width: 90%;
+			margin: 0 auto;
+			height: 3rem;
+			font-size: 1.6rem;
+		}
+	}
 `;
 
 const Options = styled.option`
