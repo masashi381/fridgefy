@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import homeImage from "../../../public/static/images/homeImage.jpg";
+import homeImage from "../../static/images/homeimage.jpg";
 
 export default function HomeImg() {
 	return (
