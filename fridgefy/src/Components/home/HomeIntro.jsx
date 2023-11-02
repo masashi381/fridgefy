@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import { User } from "../../Context/UserContext";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import { User } from '../../Context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function HomeIntro() {
   const navigate = useNavigate();
   const handleclick = () => {
-    navigate("/recipes");
+    navigate('/recipes');
   };
 
   const { user } = useContext(User);
@@ -43,13 +43,13 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   p:first-child {
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
   p {
     width: 80%;
     margin: 0 auto;
     font-size: 1.6rem;
-    font-family: "DM Mono", monospace;
+    font-family: 'DM Mono', monospace;
     font-weight: 400;
     color: #1982c4;
     text-align: justify;
@@ -59,12 +59,12 @@ const Div = styled.div`
     display: block;
     width: 15rem;
     height: 5rem;
-    margin: 1rem auto 0;
+    margin: 1rem auto 1rem;
     background-color: #ffca3a;
     box-shadow: 2px 2px black;
     border-radius: 2.5rem;
     cursor: pointer;
-    font-family: "DM Mono", monospace;
+    font-family: 'DM Mono', monospace;
     font-weight: 400;
     font-size: 1.6rem;
     &:hover {
@@ -75,7 +75,7 @@ const Div = styled.div`
     width: 80%;
     margin: 1rem auto;
     text-align: center;
-    font-family: "DM Mono", monospace;
+    font-family: 'DM Mono', monospace;
     font-weight: 400;
     font-size: 2.4rem;
     color: #6a4c93;
@@ -84,9 +84,16 @@ const Div = styled.div`
 
   @media screen and (max-width: 834px) {
     width: 80vw;
-    height: 45vh;
+    height: 50vh;
+    p:first-child {
+      padding-top: 1rem;
+    }
     p {
       width: 90%;
+    }
+    button {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
   }
 
