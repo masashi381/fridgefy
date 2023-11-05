@@ -1,108 +1,104 @@
-import Styled from "styled-components";
-import { useState, useContext, useEffect } from "react";
-import ReactPaginate from "react-paginate";
-import { FavoritesRecipes } from "../../Context/FavoritesRecipesContext";
+import Styled from 'styled-components';
+import { useState, useContext, useEffect } from 'react';
+import ReactPaginate from 'react-paginate';
+import { FavoritesRecipes } from '../../Context/FavoritesRecipesContext';
 
 export default function RecipesList({ list }) {
-	const [currentPage, setCurrentPage] = useState(0);
-	const { dispatch, state } = useContext(FavoritesRecipes);
+  const [currentPage, setCurrentPage] = useState(0);
+  const { dispatch, state } = useContext(FavoritesRecipes);
 
-	useEffect(() => {
-		const addBtton = document.querySelectorAll(".addBtn");
-		addBtton.forEach((val1) => {
-			let disabled = false;
-			state.forEach((val2) => {
-				if (val1.id == val2.id && disabled == false) {
-					disabled = true;
-				}
-			});
+  useEffect(() => {
+    const addButton = document.querySelectorAll('.addBtn');
+    addButton.forEach((val1) => {
+      let disabled = false;
+      state.forEach((val2) => {
+        if (val1.id == val2.id && disabled == false) {
+          disabled = true;
+        }
+      });
 
-			val1.disabled = disabled ? true : false;
-			
-		});
-	});
+      val1.disabled = disabled ? true : false;
+    });
+  });
 
-	const itemsPerPage = 6;
-	const totalPages = Math.ceil(list.length / itemsPerPage);
-	const startIndex = currentPage * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	const subset = list.slice(startIndex, endIndex);
+  const itemsPerPage = 6;
+  const totalPages = Math.ceil(list.length / itemsPerPage);
+  const startIndex = currentPage * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const subset = list.slice(startIndex, endIndex);
 
-	const switchDetail = (e) => {
-		if (e.target.textContent == "More") {
-			document.querySelectorAll(".detail").forEach((val) => {
-				val.style.display = "none";
-			});
-		}
-		const targrt = e.target.closest("li").querySelector(".detail");
-		// targrt.style.top = window.pageYOffset - 150 + "px";
-		targrt.style.display = targrt.style.display == "block" ? "none" : "block";
-	};
+  const switchDetail = (e) => {
+    if (e.target.textContent == 'More') {
+      document.querySelectorAll('.detail').forEach((val) => {
+        val.style.display = 'none';
+      });
+    }
+    const target = e.target.closest('li').querySelector('.detail');
+    target.style.display = target.style.display == 'block' ? 'none' : 'block';
+  };
 
-	const handlePageChange = (selectedPage) => {
-		setCurrentPage(selectedPage.selected);
-	};
+  const handlePageChange = (selectedPage) => {
+    setCurrentPage(selectedPage.selected);
+  };
 
-	const addFavoriteRecipes = (e) => {
-		const favorite = filterRecipesList(e.target.id);
-		dispatch({ type: "add", payload: favorite });
-	};
+  const addFavoriteRecipes = (e) => {
+    const favorite = filterRecipesList(e.target.id);
+    dispatch({ type: 'add', payload: favorite });
+  };
 
-	const filterRecipesList = (id) => {
-		let result;
-		const search = list.map((item) => {
-			if (id === item.id.toString()) {
-				return (result = item);
-			}
-		});
-		return result;
-	};
+  const filterRecipesList = (id) => {
+    let result;
+    list.map((item) => {
+      if (id === item.id.toString()) {
+        return (result = item);
+      }
+    });
+    return result;
+  };
 
-	return (
-		<div>
-			<Ul>
-				{subset.map((item, index) => (
-					<li key={index} className={index}>
-						<StyledImgCointainer>
-							<img src={item["image"]} />
-						</StyledImgCointainer>
-						<h2>{item["title"]}</h2>
-						<div className="detail">
-							<div className="deleteBtn" onClick={switchDetail}>
-								<i className="fa-solid fa-square-xmark fa-2xl my-style"></i>
-							</div>
-							<h2 className="titleInMore">{item["title"]}</h2>
-							<img className="imgInsideMore" src={item["image"]} />
-							<div className="info">
-								<h3>Ingredients:</h3>
-								<p>
-									{item["extendedIngredients"].map((val, index) => (
-										<span key={index}>{val.name},&nbsp;</span>
-									))}
-								</p>
-							</div>
-						</div>
-						<div className="btnContainer">
-							<button className="moreBtn" onClick={switchDetail}>
-								More
-							</button>
-							<button id={item["id"]} className="addBtn" onClick={addFavoriteRecipes}>
-								Add
-							</button>
-						</div>
-					</li>
-				))}
-			</Ul>
-			<StyledReactPaginate
-				pageCount={totalPages}
-				onPageChange={handlePageChange}
-				forcePage={currentPage}
-				previousLabel={"<<"}
-				nextLabel={">>"}
-				breakLabel={"..."}
-			/>
-		</div>
-	);
+  return (
+    <div>
+      <Ul>
+        {subset.map((item, index) => (
+          <li key={index} className={index}>
+            <img src={item['image']} />
+            <h2>{item['title']}</h2>
+            <div className='detail'>
+              <div className='deleteBtn' onClick={switchDetail}>
+                <i className='fa-solid fa-square-xmark fa-2xl my-style'></i>
+              </div>
+              <h2 className='titleInMore'>{item['title']}</h2>
+              <img className='imgInsideMore' src={item['image']} />
+              <div className='info'>
+                <h3>Ingredients:</h3>
+                <p>
+                  {item['extendedIngredients'].map((val, index) => (
+                    <span key={index}>{val.name},&nbsp;</span>
+                  ))}
+                </p>
+              </div>
+            </div>
+            <div className='btnContainer'>
+              <button className='moreBtn' onClick={switchDetail}>
+                More
+              </button>
+              <button id={item['id']} className='addBtn' onClick={addFavoriteRecipes}>
+                Add
+              </button>
+            </div>
+          </li>
+        ))}
+      </Ul>
+      <StyledReactPaginate
+        pageCount={totalPages}
+        onPageChange={handlePageChange}
+        forcePage={currentPage}
+        previousLabel={'<<'}
+        nextLabel={'>>'}
+        breakLabel={'...'}
+      />
+    </div>
+  );
 }
 
 const Ul = Styled.ul`
@@ -216,6 +212,19 @@ const Ul = Styled.ul`
 		}
 	}
 
+	@media screen and (min-width: 834px) {
+		li {
+			img{
+				width: 100%;
+			}
+			.detail {
+				.imgInsideMore {
+					width: 100%;
+				}
+			}
+		}
+	}
+
 	@media screen and (max-width: 375px){
 		width: 90vw;
     justify-content: normal;
@@ -287,4 +296,4 @@ const StyledImgCointainer = Styled.div`
 		margin-top: 1rem;
 		border-radius: 0.5rem;
 	}
-`
+`;

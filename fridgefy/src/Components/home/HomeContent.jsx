@@ -17,8 +17,4 @@ const StyledDiv = styled.div`
   align-items: center;
   height: 80vh;
   background: center/cover no-repeat url(${homeImage});
-
-  @media screen and (max-width: 375px) {
-    /* width: 76vw;  */
-  }
 `;
