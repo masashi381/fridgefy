@@ -84,9 +84,9 @@ const Div = styled.div`
 
   @media screen and (max-width: 834px) {
     width: 80vw;
-    height: 50vh;
+    height: 45vh;
     p:first-child {
-      padding-top: 1rem;
+      padding-top: 2rem;
     }
     p {
       width: 90%;
@@ -99,8 +99,8 @@ const Div = styled.div`
 
   @media screen and (max-width: 375px) {
     width: 90vw;
-    height: 77vh;
-    padding-top: 1rem;
+    height: 65vh;
+    padding-top: 2rem;
     p:first-child {
       padding-top: 0;
     }
