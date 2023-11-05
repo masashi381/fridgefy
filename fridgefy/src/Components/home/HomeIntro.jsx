@@ -36,7 +36,7 @@ export default function HomeIntro() {
 
 const Div = styled.div`
   width: 40vw;
-  height: 50vh;
+  height: 60vh;
   padding-top: 1rem;
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 3rem;
@@ -58,7 +58,7 @@ const Div = styled.div`
   button {
     display: block;
     width: 15rem;
-    height: 5rem;
+    height: 3rem;
     margin: 1rem auto 1rem;
     background-color: #ffca3a;
     box-shadow: 2px 2px black;

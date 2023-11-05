@@ -41,7 +41,11 @@ const ShoppingListDiv = styled.div`
 			color: #6a4c93;
 		}
 	}
-
+	@media screen and (min-width: 834px) {
+		.itemsBuyList {
+			margin-bottom: 1rem;
+		}
+	}
 	@media screen and (max-width: 375px) {
 		flex-direction: column;
 		.itemsBuyList {
