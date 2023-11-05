@@ -1,7 +1,7 @@
 // import HomeImg from "./HomeImg";
-import HomeIntro from "./HomeIntro";
-import styled from "styled-components";
-import homeImage from "../../../images/homeimage.jpg";
+import HomeIntro from './HomeIntro';
+import styled from 'styled-components';
+import homeImage from '../../../images/homeimage.jpg';
 
 export default function HomeContent() {
   return (
